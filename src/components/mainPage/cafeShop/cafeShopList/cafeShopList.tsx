@@ -12,7 +12,7 @@ const CafeShopList = () => {
   return (
     <Style.ListBox>
       {DUMMY_DATAS.map((shop) => (
-        <CafeShop shopInfos={shop} />
+        <CafeShop key={shop.id} shopInfos={shop} />
       ))}
     </Style.ListBox>
   );

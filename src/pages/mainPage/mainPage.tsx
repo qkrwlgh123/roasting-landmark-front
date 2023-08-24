@@ -1,4 +1,4 @@
-import CafeListLayout from '../../components/layout/cafeListLayout/cafeListLayout';
+import CafeListLayout from '../../components/layout/cafeShop/cafeListLayout/cafeListLayout';
 import CafeShopList from '../../components/mainPage/cafeShop/cafeShopList/cafeShopList';
 import RecommendByLocation from '../../components/mainPage/recommendByLocation/recommendByLocation';
 
