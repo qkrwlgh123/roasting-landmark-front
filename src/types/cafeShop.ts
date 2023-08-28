@@ -1,6 +1,6 @@
 export interface CafeShopType {
   id: number;
-  name: string;
+  shopName: string;
   desertType?: string;
   roadAddress?: string;
   parcelAddress?: string;
