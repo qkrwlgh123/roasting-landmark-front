@@ -1,5 +1,5 @@
-const CafeShopFacilities = () => {
-  return <>시설 안내</>;
+const CafeShopFacilities = ({ parkingType }: { parkingType: string }) => {
+  return <>주차 : {parkingType}</>;
 };
 
 export default CafeShopFacilities;

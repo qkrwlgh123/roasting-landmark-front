@@ -1,11 +1,19 @@
 import Style from './cafeShopIntro.style';
 
-const CafeShopIntro = () => {
+const CafeShopIntro = ({
+  introInfo,
+}: {
+  introInfo: { shopName: string; rate: number };
+}) => {
   return (
     <Style.CafeInfoContainer>
       <div>
-        <Style.CafeName>스타벅스 상봉점</Style.CafeName>
-        <Style.CafeRate>4.9(1634)</Style.CafeRate>
+        <Style.CafeName>{introInfo?.shopName}</Style.CafeName>
+        {introInfo?.rate ? (
+          <Style.CafeRate>{introInfo?.rate}</Style.CafeRate>
+        ) : (
+          <span>평점이 없습니다!</span>
+        )}
       </div>
       <div>
         <span>찜 / </span>

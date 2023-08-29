@@ -4,13 +4,17 @@ import Style from './cafeShopList.style';
 import { getAllShops } from '../../../../utils/shared/cafeShopApis';
 import { CafeShopType } from '../../../../types/cafeShop';
 
-const CafeShopList = () => {
-  const [shopList, setShopList] = useState([]);
-
+const CafeShopList = ({
+  shopList,
+  handleSetShopList,
+}: {
+  shopList: CafeShopType[];
+  handleSetShopList: (list: CafeShopType[]) => void;
+}) => {
   useEffect(() => {
     const fetchShopsList = async () => {
       const shopList = await getAllShops();
-      setShopList(shopList);
+      handleSetShopList(shopList);
     };
     fetchShopsList();
   }, []);

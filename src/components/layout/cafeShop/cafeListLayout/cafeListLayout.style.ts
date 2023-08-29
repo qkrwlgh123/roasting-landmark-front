@@ -12,7 +12,7 @@ const ContentsLayout = styled.div`
   padding: 30px;
   border-radius: 28px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1300px;
 `;
 
 export default { Layout, ContentsLayout };

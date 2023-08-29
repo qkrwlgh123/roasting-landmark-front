@@ -1,4 +1,4 @@
-import { SearchResultShopType } from '../../types/kakaoSearchResult';
+import { SearchResultShopType } from '../../types/kakaoApiResult';
 
 declare global {
   interface Window {

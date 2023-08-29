@@ -1,5 +1,5 @@
 import { FieldValues } from 'react-hook-form';
-import { defaultInstance } from './axiosInstance';
+import { defaultInstance, formDataInstance } from './axiosInstance';
 
 // 모든 카페 목록 조회
 export const getAllShops = async () => {
@@ -11,11 +11,42 @@ export const getAllShops = async () => {
   }
 };
 
-// 신규 카페 정보 등록
-export const postCreateShop = async (data: FieldValues) => {
+// 단욀 카페 목록 조회
+export const getShopDetail = async (id: number) => {
   try {
-    const shop = await defaultInstance.post('shop/create', data);
+    const { data } = await defaultInstance.get(`/shop/detail`, {
+      params: {
+        id,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 신규 카페 정보 등록
+export const postCreateShop = async (data: FormData) => {
+  try {
+    const shop = await formDataInstance.post('shop/create', data);
     console.log(shop);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 현재 위치 기반(위도, 경도) 카페 리스트 조회
+export const getRecommendByLocationShops = async (data: {
+  latitude: number;
+  longitude: number;
+}) => {
+  try {
+    const recommendedList = await defaultInstance.get(`/shop/shopsByLocation`, {
+      params: {
+        ...data,
+      },
+    });
+    return recommendedList;
   } catch (error) {
     console.log(error);
   }

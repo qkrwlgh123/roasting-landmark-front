@@ -1,19 +1,11 @@
 import CafeShopImage from '../cafeShopImage/cafeShopImage';
 import Style from './cafeShopImageList.style';
 
-const DUMMY_DATAS = [
-  { id: 1, src: '테스트 이미지' },
-  { id: 2, src: '테스트 이미지' },
-  { id: 3, src: '테스트 이미지' },
-  { id: 4, src: '테스트 이미지' },
-  { id: 5, src: '테스트 이미지' },
-];
-
-const CafeShopImageList = () => {
+const CafeShopImageList = ({ images }: { images: string[] }) => {
   return (
     <Style.ListBox>
-      {DUMMY_DATAS.map((img) => (
-        <CafeShopImage key={img.id} src={img.src} />
+      {images?.map((img) => (
+        <CafeShopImage key={img} src={img} />
       ))}
     </Style.ListBox>
   );

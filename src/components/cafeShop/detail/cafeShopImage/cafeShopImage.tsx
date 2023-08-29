@@ -4,7 +4,7 @@ import Style from './cafeShopImage.style';
 const CafeShopImage = ({ src }: { src: CafeShopImageType }) => {
   return (
     <Style.CafeShopImageBox>
-      <div>{src}</div>
+      <img src={src} />
     </Style.CafeShopImageBox>
   );
 };

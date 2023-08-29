@@ -14,7 +14,8 @@ const SelectInfoMenu = ({
       <ul>
         {INFO_MENU_LIST.map((menu) => (
           <Style.InfoMenu
-            isSelected={selectedMenu === menu}
+            key={menu}
+            isselected={selectedMenu === menu}
             onClick={() => handleClickInfoMenu(menu)}
           >
             {menu}

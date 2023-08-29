@@ -4,7 +4,7 @@ import { postCreateShop } from '../../../utils/shared/cafeShopApis';
 import Style from './cafeShopCreatePage.style';
 import { FieldValues, useForm } from 'react-hook-form';
 import { searchPlaces } from '../../../utils/kakaoApi/searchPlace';
-import { SearchResultShopType } from '../../../types/kakaoSearchResult';
+import { SearchResultShopType } from '../../../types/kakaoApiResult';
 
 const CafeShopCreatePage = () => {
   const [searchedPlacesList, setSearchedPlacesList] = useState<
@@ -31,7 +31,19 @@ const CafeShopCreatePage = () => {
   const changedShopName = watch().shopName;
 
   const onValid = (data: FieldValues) => {
-    postCreateShop(data);
+    const postInfo = {
+      ...data,
+      images: undefined,
+      latitude: Number(selectedShopInfo!.y),
+      longitude: Number(selectedShopInfo!.x),
+      roadAddress: selectedShopInfo!.road_address_name,
+      parcelAddress: selectedShopInfo!.address_name,
+      telNumber: selectedShopInfo!.phone,
+    };
+    const formData = new FormData();
+    formData.append('image', data.images[0]); //files[0] === upload file
+    formData.append('data', JSON.stringify(postInfo));
+    postCreateShop(formData);
   };
 
   useEffect(() => {
@@ -40,8 +52,7 @@ const CafeShopCreatePage = () => {
 
     searchPlaces(changedShopName, handleSetPlacesState);
   }, [changedShopName]);
-
-  console.log(watch());
+  console.log(selectedShopInfo);
   return (
     <Style.FormContainer onSubmit={handleSubmit(onValid)}>
       <Style.FormInnerBox>
@@ -104,7 +115,7 @@ const CafeShopCreatePage = () => {
         />
         <label htmlFor="images">사진</label>
         <input
-          id="images"
+          id="image"
           type="file"
           multiple
           placeholder="사진"
@@ -117,12 +128,12 @@ const CafeShopCreatePage = () => {
           placeholder="웹 사이트"
           {...register('menu')}
         />
-        <label htmlFor="webSite">웹 사이트</label>
+        <label htmlFor="website">웹 사이트</label>
         <input
-          id="webSite"
+          id="website"
           type="text"
           placeholder="웹 사이트"
-          {...register('webSite')}
+          {...register('website')}
         />
         <button type="submit">카페 정보 등록</button>
       </Style.FormInnerBox>

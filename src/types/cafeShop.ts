@@ -10,12 +10,13 @@ export interface CafeShopType {
   openTime?: { days: string; time: string }[];
   breakTime?: string;
   holiday?: string;
-  rate: number;
-  images?: string[];
+  rate?: number;
+  images: string[];
   latitude?: number;
   longitude?: number;
   webSite?: string;
   menu?: { food: string; price: number }[];
+  distance?: number;
   reviews?: string[]; // 타입 고쳐야한다.
 }
 

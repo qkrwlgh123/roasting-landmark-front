@@ -9,14 +9,14 @@ const InfoMenuContainer = styled.nav`
   border-bottom: 1px solid black;
 `;
 
-const InfoMenu = styled.li<{ isSelected: boolean }>`
+const InfoMenu = styled.li<{ isselected: boolean }>`
   cursor: pointer;
   margin-right: 1.2rem;
   padding-bottom: 10px;
-  color: ${(props) => (props.isSelected ? 'blue' : 'black')};
+  color: ${(props) => (props.isselected ? 'blue' : 'black')};
   border-bottom: ${(props) =>
-    props.isSelected ? '3px solid blue' : undefined};
-  font-weight: ${(props) => (props.isSelected ? 700 : 400)};
+    props.isselected ? '3px solid blue' : undefined};
+  font-weight: ${(props) => (props.isselected ? 700 : 400)};
 `;
 
 export default { InfoMenuContainer, InfoMenu };

@@ -19,5 +19,20 @@ const axiosAuthApi = (url: string, options?: any) => {
   return instance;
 };
 
+// post, delete등 api요청 시 인증값이 필요한 경우
+const axiosFormDataApi = (url: string, options?: any) => {
+  const token = '토큰 값';
+  const instance = axios.create({
+    baseURL: url,
+    headers: {
+      // Authorization: 'Bearer ' + token,
+      'Content-Type': 'multipart/form-data',
+    },
+    ...options,
+  });
+  return instance;
+};
+
 export const defaultInstance = axiosApi(BASE_URL!);
 export const authInstance = axiosAuthApi(BASE_URL!);
+export const formDataInstance = axiosFormDataApi(BASE_URL!);

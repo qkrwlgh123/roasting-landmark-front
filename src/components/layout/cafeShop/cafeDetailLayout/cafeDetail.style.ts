@@ -8,6 +8,7 @@ const Layout = styled.div`
 `;
 
 const ContentsLayout = styled.div`
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
