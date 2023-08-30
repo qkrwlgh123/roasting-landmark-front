@@ -2,15 +2,17 @@ import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_SERVER_BASEURL;
 
-// get 요청 - 인증값이 필요없는 경우
+const TOKEN = localStorage.getItem('token');
+
+// 인증값이 필요없는 경우
 const axiosApi = (url: string, options?: any) => {
   const instance = axios.create({ baseURL: url, ...options });
   return instance;
 };
 
-// post, delete등 api요청 시 인증값이 필요한 경우
+// 인증값이 필요한 경우
 const axiosAuthApi = (url: string, options?: any) => {
-  const token = '토큰 값';
+  const token = TOKEN;
   const instance = axios.create({
     baseURL: url,
     headers: { Authorization: 'Bearer ' + token },
@@ -19,13 +21,13 @@ const axiosAuthApi = (url: string, options?: any) => {
   return instance;
 };
 
-// post, delete등 api요청 시 인증값이 필요한 경우
+// 인증값이 필요한 경우 - form_data 데이터 전송
 const axiosFormDataApi = (url: string, options?: any) => {
-  const token = '토큰 값';
+  const token = TOKEN;
   const instance = axios.create({
     baseURL: url,
     headers: {
-      // Authorization: 'Bearer ' + token,
+      Authorization: 'Bearer ' + token,
       'Content-Type': 'multipart/form-data',
     },
     ...options,

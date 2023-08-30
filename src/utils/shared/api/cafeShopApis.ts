@@ -29,7 +29,6 @@ export const getShopDetail = async (id: number) => {
 export const postCreateShop = async (data: FormData) => {
   try {
     const shop = await formDataInstance.post('shop/create', data);
-    console.log(shop);
   } catch (error) {
     console.log(error);
   }

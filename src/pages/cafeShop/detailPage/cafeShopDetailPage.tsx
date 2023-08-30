@@ -5,7 +5,7 @@ import CafeShopIntro from '../../../components/cafeShop/detail/cafeShopIntro/caf
 import CafeDetailLayout from '../../../components/layout/cafeShop/cafeDetailLayout/cafeDetailLayout';
 import Style from './cafeShopDetailPage.style';
 import CafeShopDetailInfo from '../../../components/cafeShop/detail/cafeShopDetailInfo/cafeShopDetailInfo';
-import { getShopDetail } from '../../../utils/shared/cafeShopApis';
+import { getShopDetail } from '../../../utils/shared/api/cafeShopApis';
 import { useParams } from 'react-router-dom';
 import { CafeShopType } from '../../../types/cafeShop';
 
@@ -26,7 +26,7 @@ const CafeShopDetailPage = () => {
     };
     fetchShopDetail(shopId);
   }, []);
-  console.log(shopInfo);
+
   return (
     <CafeDetailLayout>
       <CafeShopImageList images={shopInfo?.images!} />

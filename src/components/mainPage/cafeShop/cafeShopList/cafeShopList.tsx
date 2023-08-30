@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import CafeShop from '../cafeShop/cafeShop';
 import Style from './cafeShopList.style';
-import { getAllShops } from '../../../../utils/shared/cafeShopApis';
+import { getAllShops } from '../../../../utils/shared/api/cafeShopApis';
 import { CafeShopType } from '../../../../types/cafeShop';
 
 const CafeShopList = ({

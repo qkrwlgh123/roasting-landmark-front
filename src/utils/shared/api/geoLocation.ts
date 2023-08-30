@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
-import { getCurrentPositionResultType } from '../../types/kakaoApiResult';
+import { getCurrentPositionResultType } from '../../../types/kakaoApiResult';
 import { getRecommendByLocationShops } from './cafeShopApis';
-import { CafeShopType } from '../../types/cafeShop';
+import { CafeShopType } from '../../../types/cafeShop';
 
 const { kakao } = window;
 

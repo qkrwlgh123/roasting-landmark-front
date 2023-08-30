@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CafeShopType } from '../../../types/cafeShop';
-import { postCreateShop } from '../../../utils/shared/cafeShopApis';
+import { postCreateShop } from '../../../utils/shared/api/cafeShopApis';
 import Style from './cafeShopCreatePage.style';
 import { FieldValues, useForm } from 'react-hook-form';
 import { searchPlaces } from '../../../utils/kakaoApi/searchPlace';
@@ -52,7 +51,7 @@ const CafeShopCreatePage = () => {
 
     searchPlaces(changedShopName, handleSetPlacesState);
   }, [changedShopName]);
-  console.log(selectedShopInfo);
+
   return (
     <Style.FormContainer onSubmit={handleSubmit(onValid)}>
       <Style.FormInnerBox>
