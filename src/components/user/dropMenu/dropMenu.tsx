@@ -31,16 +31,19 @@ const DropMenu = ({
   const dropMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleOutsideClose = (e: any) => {
+    const handleOutsideClose = (e: MouseEvent) => {
       // useRef current에 담긴 엘리먼트 바깥을 클릭 시 드롭메뉴 닫힘
       if (
         isClickProfile &&
+        e.target instanceof Node &&
         !dropMenuRef.current!.contains(e.target) &&
+        e.target instanceof HTMLElement && // HTMLElement일 때만 tagName 속성 사용
         e.target.tagName !== 'IMG'
       ) {
         handleClickProfile();
       }
     };
+
     document.addEventListener('click', handleOutsideClose);
 
     return () => document.removeEventListener('click', handleOutsideClose);
