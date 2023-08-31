@@ -18,7 +18,7 @@ const Header = () => {
           <Style.SearchCafeInput placeholder="지역 또는 카페명 입력" />
         </Style.SearchComponentBox>
         <Link to={routes.cafeShopCreate}>
-          <Style.CreateCafeBox>카페 정보 등록</Style.CreateCafeBox>
+          <Style.CreateCafeBox>신규 카페 등록</Style.CreateCafeBox>
         </Link>
         <Style.AuthBox>
           {isLoggedIn ? (

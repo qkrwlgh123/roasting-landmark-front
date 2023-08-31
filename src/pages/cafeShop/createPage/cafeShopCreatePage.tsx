@@ -25,6 +25,7 @@ const CafeShopCreatePage = () => {
     setValue('shopName', place.place_name);
     setSelectedShopInfo(place);
   };
+
   const { register, watch, setValue, handleSubmit } = useForm();
 
   const changedShopName = watch().shopName;

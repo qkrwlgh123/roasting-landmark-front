@@ -3,18 +3,20 @@ import Style from './login.style';
 import { postLoginInfo } from '../../../utils/shared/api/authAPis';
 import { useRecoilState } from 'recoil';
 import { isLoggedInAtom, userInfoAtom } from '../../../recoil/authAtoms';
+import { UserInfoType } from '../../../types/user';
 
 const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInAtom);
-  const [userInfo, setUserInfo] = useRecoilState(userInfoAtom);
+  const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
   const handleReflectLoginState = (
+    userId: number,
     username: string,
     profileImage: string,
     profileDescription: string
   ) => {
     setIsLoggedIn((prev: boolean) => !prev);
-    setUserInfo({ username, profileImage, profileDescription });
+    setUserInfo({ userId, username, profileImage, profileDescription });
   };
 
   const { register, watch, setValue, handleSubmit } = useForm();

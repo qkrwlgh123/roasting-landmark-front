@@ -4,12 +4,17 @@ import CafeShopFacilities from '../cafeShopDetailInfos/cafeShopFacilities/cafeSh
 import CafeShopLocation from '../cafeShopDetailInfos/cafeShopLocation/cafeShopLocation';
 import CafeShopMenu from '../cafeShopDetailInfos/cafeShopMenu/cafeShopMenu';
 import CafeShopReviewList from '../cafeShopDetailInfos/cafeShopReviews/cafeShopReviewList/cafeShopReviewList';
+import Style from './cafeShopDetailInfo.style';
 
 const CafeShopDetailInfo = ({
+  shopId,
   detailInfo,
+
   selectedMenu,
 }: {
+  shopId: number;
   detailInfo: CafeShopType;
+
   selectedMenu: string;
 }) => {
   const handleRenderInfoBySelectedMenu = (selectedMenu: string) => {
@@ -27,14 +32,18 @@ const CafeShopDetailInfo = ({
         return <CafeShopMenu menu={detailInfo?.menu!} />;
 
       case '후기':
-        return <CafeShopReviewList />;
+        return <CafeShopReviewList shopId={shopId} />;
 
       default:
         return <div>알 수 없는 접근입니다.</div>;
     }
   };
 
-  return <div>{handleRenderInfoBySelectedMenu(selectedMenu)}</div>;
+  return (
+    <Style.ShopDetailInfoContainer>
+      {handleRenderInfoBySelectedMenu(selectedMenu)}
+    </Style.ShopDetailInfoContainer>
+  );
 };
 
 export default CafeShopDetailInfo;

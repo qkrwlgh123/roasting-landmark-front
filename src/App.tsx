@@ -12,6 +12,7 @@ import { handleValidateToken } from './utils/shared/api/authAPis';
 import { useRecoilState } from 'recoil';
 import { isLoggedInAtom, userInfoAtom } from './recoil/authAtoms';
 import { UserInfoType } from './types/user';
+import SubmitReview from './pages/cafeShop/review/submitReview/submitReview';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInAtom);
@@ -29,6 +30,7 @@ const App = () => {
           localStorage.removeItem('token');
           setIsLoggedIn(false);
           setUserInfo({
+            userId: null,
             username: '',
             profileImage: '',
             profileDescription: '',
@@ -50,6 +52,7 @@ const App = () => {
             path={routes.cafeShopDetail}
             element={<CafeShopDetailPage />}
           />
+          <Route path={routes.writeReview} element={<SubmitReview />} />
           <Route
             path={routes.cafeShopCreate}
             element={<CafeShopCreatePage />}

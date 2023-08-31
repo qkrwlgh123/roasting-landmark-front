@@ -19,7 +19,12 @@ const DropMenu = ({
 
   const handleLogout = () => {
     setIsLoggedIn((prev: boolean) => !prev);
-    setUserInfo({ username: '', profileImage: '', profileDescription: '' });
+    setUserInfo({
+      userId: null,
+      username: '',
+      profileImage: '',
+      profileDescription: '',
+    });
     logout();
   };
 

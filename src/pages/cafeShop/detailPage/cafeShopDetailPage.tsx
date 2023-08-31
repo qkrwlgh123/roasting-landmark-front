@@ -31,14 +31,23 @@ const CafeShopDetailPage = () => {
     <CafeDetailLayout>
       <CafeShopImageList images={shopInfo?.images!} />
       <CafeShopIntro
-        introInfo={{ shopName: shopInfo?.shopName!, rate: shopInfo?.rate! }}
+        introInfo={{
+          shopId,
+          shopName: shopInfo?.shopName!,
+          rate: shopInfo?.rate!,
+          participants: shopInfo?.participants!,
+        }}
       />
       <SelectInfoMenu
         selectedMenu={selectedMenu}
         handleClickInfoMenu={handleClickInfoMenu}
       />
 
-      <CafeShopDetailInfo detailInfo={shopInfo!} selectedMenu={selectedMenu} />
+      <CafeShopDetailInfo
+        shopId={shopId}
+        detailInfo={shopInfo!}
+        selectedMenu={selectedMenu}
+      />
     </CafeDetailLayout>
   );
 };

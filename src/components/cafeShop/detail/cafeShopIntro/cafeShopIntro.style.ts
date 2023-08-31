@@ -18,4 +18,11 @@ const CafeName = styled.span`
 
 const CafeRate = styled.span``;
 
-export default { CafeInfoContainer, CafeName, CafeRate };
+const SubmitReviewButton = styled.button`
+  margin: 5px 0 15px 0;
+  font-size: 15px;
+  border: 1px solid black;
+  padding: 5px;
+`;
+
+export default { CafeInfoContainer, CafeName, CafeRate, SubmitReviewButton };

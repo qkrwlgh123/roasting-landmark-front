@@ -11,6 +11,7 @@ export interface CafeShopType {
   breakTime?: string;
   holiday?: string;
   rate?: number;
+  participants?: number;
   images: string[];
   latitude?: number;
   longitude?: number;

@@ -12,6 +12,7 @@ export const isLoggedInAtom = atom({
 export const userInfoAtom = atom({
   key: 'userInfo',
   default: {
+    userId: null,
     username: '',
     profileImage: '',
     profileDescription: '',

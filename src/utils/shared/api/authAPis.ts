@@ -20,6 +20,7 @@ export const postAddUser = async (data: FormData) => {
 export const postLoginInfo = async (
   data: FieldValues,
   handleReflectLoginState: (
+    userId: number,
     username: string,
     profileImage: string,
     profileDescription: string
@@ -31,6 +32,7 @@ export const postLoginInfo = async (
     const { userInfo } = resultData.data;
     localStorage.setItem('token', token);
     handleReflectLoginState(
+      userInfo.id,
       userInfo.username,
       userInfo.profileImage,
       userInfo.profileDescription
