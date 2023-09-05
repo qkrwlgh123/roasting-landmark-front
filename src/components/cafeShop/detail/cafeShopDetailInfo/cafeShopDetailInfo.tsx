@@ -1,35 +1,33 @@
 import { CafeShopType } from '../../../../types/cafeShop';
-import CafeShopDescription from '../cafeShopDetailInfos/cafeShopDescription/cafeShopDescription';
-import CafeShopFacilities from '../cafeShopDetailInfos/cafeShopFacilities/cafeShopFacilities';
+import CafeShopDescription from '../cafeShopDetailInfos/cafeShopDescription';
 import CafeShopLocation from '../cafeShopDetailInfos/cafeShopLocation/cafeShopLocation';
-import CafeShopMenu from '../cafeShopDetailInfos/cafeShopMenu/cafeShopMenu';
+import CafeShopMenu from '../cafeShopDetailInfos/cafeShopMenu';
 import CafeShopReviewList from '../cafeShopDetailInfos/cafeShopReviews/cafeShopReviewList/cafeShopReviewList';
 import Style from './cafeShopDetailInfo.style';
+import CafeShopContacts from '../cafeShopDetailInfos/cafeShopContacts';
 
 const CafeShopDetailInfo = ({
   shopId,
   detailInfo,
-
   selectedMenu,
 }: {
   shopId: number;
   detailInfo: CafeShopType;
-
   selectedMenu: string;
 }) => {
   const handleRenderInfoBySelectedMenu = (selectedMenu: string) => {
     switch (selectedMenu) {
       case '소개':
-        return <CafeShopDescription />;
+        return <CafeShopDescription detailInfo={detailInfo} />;
 
-      case '시설 안내':
-        return <CafeShopFacilities parkingType={detailInfo?.parkingType!} />;
+      case '안내':
+        return <CafeShopContacts detailInfo={detailInfo} />;
 
       case '위치':
-        return <CafeShopLocation />;
+        return <CafeShopLocation detailInfo={detailInfo} />;
 
       case '메뉴':
-        return <CafeShopMenu menu={detailInfo?.menu!} />;
+        return <CafeShopMenu detailInfo={detailInfo} />;
 
       case '후기':
         return <CafeShopReviewList shopId={shopId} />;

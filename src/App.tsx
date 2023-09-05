@@ -19,27 +19,27 @@ const App = () => {
   const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
 
   // 토큰 변조 방지를 위한 유효성 검사
-  useEffect(() => {
-    const handleRetrieveUserInfo = async () => {
-      const token = localStorage.getItem('token');
-      if (token && isLoggedIn) {
-        const isValidate = await handleValidateToken();
+  // useEffect(() => {
+  //   const handleRetrieveUserInfo = async () => {
+  //     const token = localStorage.getItem('token');
+  //     if (token && isLoggedIn) {
+  //       const isValidate = await handleValidateToken();
 
-        if (!isValidate) {
-          alert('유효하지 않은 접근입니다.');
-          localStorage.removeItem('token');
-          setIsLoggedIn(false);
-          setUserInfo({
-            userId: null,
-            username: '',
-            profileImage: '',
-            profileDescription: '',
-          });
-        }
-      }
-    };
-    handleRetrieveUserInfo();
-  }, []);
+  //       if (!isValidate) {
+  //         alert('유효하지 않은 접근입니다.');
+  //         localStorage.removeItem('token');
+  //         setIsLoggedIn(false);
+  //         setUserInfo({
+  //           userId: null,
+  //           username: '',
+  //           profileImage: '',
+  //           profileDescription: '',
+  //         });
+  //       }
+  //     }
+  //   };
+  //   handleRetrieveUserInfo();
+  // }, []);
   return (
     <>
       <GlobalStyles />

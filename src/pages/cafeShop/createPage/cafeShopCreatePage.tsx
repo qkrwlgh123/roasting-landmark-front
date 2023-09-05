@@ -4,6 +4,7 @@ import Style from './cafeShopCreatePage.style';
 import { FieldValues, useForm } from 'react-hook-form';
 import { searchPlaces } from '../../../utils/kakaoApi/searchPlace';
 import { SearchResultShopType } from '../../../types/kakaoApiResult';
+import { CafeShopMenuType } from '../../../types/cafeShop';
 
 const CafeShopCreatePage = () => {
   const [searchedPlacesList, setSearchedPlacesList] = useState<
@@ -30,9 +31,35 @@ const CafeShopCreatePage = () => {
 
   const changedShopName = watch().shopName;
 
+  // 현재 입력중인 상품, 가격
+  const [currentTypingMenu, setCurrentTypingMenu] = useState({
+    food: '',
+    price: '',
+  });
+
+  // 상품 입력값 반영하는 함수
+  const handleTypingFood = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentTypingMenu((prev) => ({ ...prev, food: e.target.value }));
+  };
+
+  // 가격 입력값 반영하는 함수
+  const handleTypingPrice = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentTypingMenu((prev) => ({ ...prev, price: e.target.value }));
+  };
+
+  // 입력완료된 메뉴 리스트
+  const [menuList, setMenuList] = useState<CafeShopMenuType[]>([]);
+
+  // 입력 완료 버튼 누르면 발동하는 함수
+  const handleClickAddMenu = () => {
+    setMenuList((prev: CafeShopMenuType[]) => [...prev, currentTypingMenu]);
+    setCurrentTypingMenu({ food: '', price: '' });
+  };
+
   const onValid = (data: FieldValues) => {
     const postInfo = {
       ...data,
+      menu: JSON.stringify(menuList),
       images: undefined,
       latitude: Number(selectedShopInfo!.y),
       longitude: Number(selectedShopInfo!.x),
@@ -53,6 +80,7 @@ const CafeShopCreatePage = () => {
     searchPlaces(changedShopName, handleSetPlacesState);
   }, [changedShopName]);
 
+  console.log(currentTypingMenu);
   return (
     <Style.FormContainer onSubmit={handleSubmit(onValid)}>
       <Style.FormInnerBox>
@@ -71,6 +99,13 @@ const CafeShopCreatePage = () => {
             </div>
           ))}
         </div>
+        <label htmlFor="description">카페 소개</label>
+        <input
+          id="description"
+          type="text"
+          placeholder="ex) 저희 카페는 ~에 위치한 ~한 카페입니다."
+          {...register('description')}
+        />
         <label htmlFor="desertType">디저트 종류</label>
         <input
           id="desertType"
@@ -121,13 +156,40 @@ const CafeShopCreatePage = () => {
           placeholder="사진"
           {...register('images')}
         />
-        <label htmlFor="menu">메뉴</label>
-        <input
-          id="menu"
-          type="text"
-          placeholder="웹 사이트"
-          {...register('menu')}
-        />
+        <div>
+          <span>메뉴</span>
+          <button type="button" onClick={handleClickAddMenu}></button>
+
+          <div>
+            <span>상품</span>
+            <input
+              type="text"
+              value={currentTypingMenu?.food}
+              onChange={handleTypingFood}
+            />
+            <span>가격</span>
+            <input
+              type="number"
+              value={currentTypingMenu?.price}
+              onChange={handleTypingPrice}
+            />
+            <button type="button" onClick={handleClickAddMenu}>
+              입력 완료
+            </button>
+          </div>
+          <div>
+            <span>입력된 메뉴</span>
+            {menuList?.map((menu: CafeShopMenuType) => (
+              <div>
+                <span>{menu.food} - </span>
+                <span>
+                  {menu.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <label htmlFor="website">웹 사이트</label>
         <input
           id="website"

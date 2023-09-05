@@ -12,6 +12,9 @@ const FormInnerBox = styled.div`
   padding: 30px;
   margin-top: 50px;
   width: 50%;
+  input {
+    margin-bottom: 10px;
+  }
 `;
 
 export default { FormContainer, FormInnerBox };

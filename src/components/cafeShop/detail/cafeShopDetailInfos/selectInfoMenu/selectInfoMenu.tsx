@@ -1,6 +1,6 @@
 import Style from './selectInfoMenu.style';
 
-const INFO_MENU_LIST = ['소개', '시설 안내', '위치', '메뉴', '후기'];
+const INFO_MENU_LIST = ['소개', '안내', '위치', '메뉴', '후기'];
 
 const SelectInfoMenu = ({
   selectedMenu,
