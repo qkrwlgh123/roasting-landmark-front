@@ -11,8 +11,6 @@ const CafeShopCreatePage = () => {
     SearchResultShopType[]
   >([]);
 
-  const [isClickPlace, setIsClickPlace] = useState(false);
-
   const [selectedShopInfo, setSelectedShopInfo] =
     useState<SearchResultShopType>();
 
@@ -21,9 +19,8 @@ const CafeShopCreatePage = () => {
   };
 
   const handleClickShopname = (place: SearchResultShopType) => {
-    setIsClickPlace(true);
     setSearchedPlacesList([]);
-    setValue('shopName', place.place_name);
+
     setSelectedShopInfo(place);
   };
 
@@ -56,11 +53,38 @@ const CafeShopCreatePage = () => {
     setCurrentTypingMenu({ food: '', price: '' });
   };
 
+  // 사진 업로드 리스트
+  const [uploadImagesList, setUploadImagesList] = useState<File[]>([]);
+
+  // 사진 미리보기 리스트
+  const [prevImagesList, setPrevImagesList] = useState<string[]>([]);
+
+  // 사진 입력 변경 감지 함수
+  const handleInputImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    let currentPrevList = [...prevImagesList];
+    let currentUploadList = [...uploadImagesList];
+
+    for (const file of files!) {
+      const currentUrl = URL.createObjectURL(file);
+      currentPrevList.push(currentUrl);
+      currentUploadList.push(file);
+    }
+
+    // 목록에 5장 이상 존재할경우 처음부터 5장까지 자르기
+    if (currentPrevList.length > 5) {
+      currentPrevList = currentPrevList.slice(0, 5);
+      currentUploadList = currentUploadList.slice(0, 5);
+    }
+
+    setPrevImagesList(currentPrevList);
+    setUploadImagesList(currentUploadList);
+  };
+
   const onValid = (data: FieldValues) => {
     const postInfo = {
       ...data,
       menu: JSON.stringify(menuList),
-      images: undefined,
       latitude: Number(selectedShopInfo!.y),
       longitude: Number(selectedShopInfo!.x),
       roadAddress: selectedShopInfo!.road_address_name,
@@ -68,19 +92,23 @@ const CafeShopCreatePage = () => {
       telNumber: selectedShopInfo!.phone,
     };
     const formData = new FormData();
-    formData.append('image', data.images[0]); //files[0] === upload file
+    uploadImagesList.forEach((image: File) => {
+      formData.append('image', image);
+    });
     formData.append('data', JSON.stringify(postInfo));
     postCreateShop(formData);
   };
 
   useEffect(() => {
-    if (isClickPlace) return;
-    if (changedShopName?.length === 0) setSearchedPlacesList([]);
+    setSelectedShopInfo({});
+    if (changedShopName === '' || !changedShopName) {
+      setSearchedPlacesList([]);
+      return;
+    }
 
     searchPlaces(changedShopName, handleSetPlacesState);
   }, [changedShopName]);
 
-  console.log(currentTypingMenu);
   return (
     <Style.FormContainer onSubmit={handleSubmit(onValid)}>
       <Style.FormInnerBox>
@@ -91,14 +119,19 @@ const CafeShopCreatePage = () => {
           placeholder="카페명"
           {...register('shopName')}
         />
-        <div>
-          {searchedPlacesList?.map((place: SearchResultShopType) => (
-            <div key={place.id} onClick={() => handleClickShopname(place)}>
-              <div>{place.place_name}</div>
-              <div>{place.road_address_name}</div>
-            </div>
-          ))}
-        </div>
+        {selectedShopInfo?.place_name ? (
+          <div>설정된 카페 : {selectedShopInfo?.place_name}</div>
+        ) : (
+          <div>
+            {searchedPlacesList?.map((place: SearchResultShopType) => (
+              <div key={place.id} onClick={() => handleClickShopname(place)}>
+                <div>{place.place_name}</div>
+                <div>{place.road_address_name}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
         <label htmlFor="description">카페 소개</label>
         <input
           id="description"
@@ -148,14 +181,22 @@ const CafeShopCreatePage = () => {
           placeholder="ex) 월"
           {...register('holiday')}
         />
-        <label htmlFor="images">사진</label>
-        <input
-          id="image"
+        <div>사진 등록</div>
+        <span>사진은 5장까지 등록가능합니다.</span>
+        <Style.ImageInputLabel htmlFor="addImg">+</Style.ImageInputLabel>
+        <Style.ImageInput
           type="file"
+          onChange={handleInputImage}
           multiple
-          placeholder="사진"
-          {...register('images')}
+          id="addImg"
         />
+        <Style.PrevImagesContainer>
+          {prevImagesList.map((img: string, index: number) => (
+            <Style.PrevImageBox key={index}>
+              <img src={img} alt="미리보기 이미지" />
+            </Style.PrevImageBox>
+          ))}
+        </Style.PrevImagesContainer>
         <div>
           <span>메뉴</span>
           <button type="button" onClick={handleClickAddMenu}></button>
