@@ -13,6 +13,7 @@ import { useRecoilState } from 'recoil';
 import { isLoggedInAtom, userInfoAtom } from './recoil/authAtoms';
 import { UserInfoType } from './types/user';
 import SubmitReview from './pages/cafeShop/review/submitReview/submitReview';
+import SearchResult from './pages/cafeShop/searchResult/searchResult';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInAtom);
@@ -49,14 +50,15 @@ const App = () => {
           <Route path={routes.signUp} element={<SignUp />} />
           <Route path={routes.login} element={<Login />} />
           <Route
+            path={routes.cafeShopCreate}
+            element={<CafeShopCreatePage />}
+          />
+          <Route
             path={routes.cafeShopDetail}
             element={<CafeShopDetailPage />}
           />
           <Route path={routes.writeReview} element={<SubmitReview />} />
-          <Route
-            path={routes.cafeShopCreate}
-            element={<CafeShopCreatePage />}
-          />
+          <Route path={routes.searchResult} element={<SearchResult />} />
         </Routes>
       </MainLayout>
     </>

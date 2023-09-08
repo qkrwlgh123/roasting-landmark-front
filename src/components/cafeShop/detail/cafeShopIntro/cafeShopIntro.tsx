@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { routes } from '../../../../routes';
 import Style from './cafeShopIntro.style';
+import ShareToOthers from './shareToOthers/shareToOthers';
+import { useState } from 'react';
 
 const CafeShopIntro = ({
   introInfo,
@@ -12,8 +14,14 @@ const CafeShopIntro = ({
     participants: number;
   };
 }) => {
+  const [isShareToOthersModal, setIsShareToOthersModal] = useState(false);
+  const handleSwitchShareModel = () => {
+    setIsShareToOthersModal((prev) => !prev);
+  };
   return (
     <Style.CafeInfoContainer>
+      {isShareToOthersModal && <ShareToOthers />}
+
       <div>
         <div>
           <Style.CafeName>{introInfo?.shopName}</Style.CafeName>
@@ -32,8 +40,12 @@ const CafeShopIntro = ({
         </div>
       </div>
       <div>
-        <span>찜 / </span>
-        <span>공유</span>
+        <button>
+          <span>찜 버튼</span>
+        </button>
+        <button onClick={handleSwitchShareModel}>
+          <span>공유 버튼</span>
+        </button>
       </div>
     </Style.CafeInfoContainer>
   );

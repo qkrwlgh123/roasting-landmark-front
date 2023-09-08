@@ -5,4 +5,5 @@ export const routes = {
   writeReview: '/writeReview',
   cafeShopDetail: '/cafeShopDetail/:id',
   cafeShopCreate: '/cafeShopCreate',
+  searchResult: '/search/:keyword',
 };

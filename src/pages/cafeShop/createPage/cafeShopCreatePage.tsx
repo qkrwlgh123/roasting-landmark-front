@@ -84,6 +84,7 @@ const CafeShopCreatePage = () => {
   const onValid = (data: FieldValues) => {
     const postInfo = {
       ...data,
+      shopName: selectedShopInfo?.place_name,
       menu: JSON.stringify(menuList),
       latitude: Number(selectedShopInfo!.y),
       longitude: Number(selectedShopInfo!.x),

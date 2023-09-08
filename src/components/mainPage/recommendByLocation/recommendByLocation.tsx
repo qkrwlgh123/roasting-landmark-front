@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { getCurrentLocation } from '../../../utils/shared/api/geoLocation';
 import Style from './recommendByLocation.style';
 import LoadingSpinner from '../../../utils/shared/loadingSpinner/loadingSpinner';

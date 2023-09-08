@@ -50,3 +50,18 @@ export const getRecommendByLocationShops = async (data: {
     console.log(error);
   }
 };
+
+// 카페명 또는 지역 검색
+export const searchByKeyword = async (keyword: string) => {
+  try {
+    const searchedList = await defaultInstance.get(`/shop/search`, {
+      params: {
+        keyword,
+      },
+    });
+
+    return searchedList;
+  } catch (err) {
+    console.log(err);
+  }
+};
