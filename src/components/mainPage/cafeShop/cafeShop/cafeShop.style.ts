@@ -1,28 +1,82 @@
 import styled from 'styled-components';
 
 const CafeInfoBox = styled.div`
+  width: 290px;
+  height: 335px;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  span {
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: 800;
-  }
+  border-radius: 12px;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
 `;
 
 const CafeImageBox = styled.div`
-  width: 240px;
-  height: 240px;
-  border-radius: 14px;
-  margin-right: 15px;
-  cursor: pointer;
+  height: 55%;
   img {
     width: 100%;
-    border-radius: 14px;
     height: 100%;
     object-fit: cover;
   }
 `;
 
-export default { CafeInfoBox, CafeImageBox };
+const CafeInfosBox = styled.div`
+  padding: 25px;
+  border-bottom: 1px solid #e5e8ec;
+`;
+
+const CafeTitleBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    font-size: 20px;
+  }
+  margin-bottom: 10px;
+`;
+
+const CafeHashTagsBox = styled.div`
+  span {
+    font-size: 13px;
+  }
+`;
+
+const RatesDistanceInfoBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+`;
+
+const RatesBox = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #383b40;
+`;
+
+const RateIconsBox = styled.div`
+  margin-right: 5px;
+`;
+
+const DistanceTextBox = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  color: #737984;
+`;
+
+const DistanceIconBox = styled.div`
+  margin-right: 3px;
+`;
+
+export default {
+  CafeInfoBox,
+  CafeImageBox,
+  CafeInfosBox,
+  CafeTitleBox,
+  CafeHashTagsBox,
+  RatesDistanceInfoBox,
+  RatesBox,
+  RateIconsBox,
+  DistanceTextBox,
+  DistanceIconBox,
+};

@@ -1,12 +1,19 @@
 import styled from 'styled-components';
+import bgImg from '../../../assets/images/png_bg.png';
 
 const RecommendContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 240px;
-  background-color: skyblue;
+  height: 400px;
+  width: 100%;
+  background-image: url(${bgImg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  font-size: 35px;
 `;
 
 const FirstTextBox = styled.div`
@@ -15,32 +22,38 @@ const FirstTextBox = styled.div`
   margin-bottom: 7px;
 `;
 
-const SecondText = styled.span`
-  font-size: 21px;
-`;
+const SecondText = styled.span``;
 
 const CurrentAreaText = styled(SecondText)`
-  color: white;
   font-weight: 600;
 `;
 
 const ButtonsBox = styled.div`
-  margin-top: 30px;
+  display: flex;
+  margin-top: 50px;
 `;
 
 const Button = styled.button`
   border-radius: 20px;
-  padding: 10px 20px;
-  color: white;
+  padding: 10px 35px;
+  color: #ffffff;
+`;
+
+const IconBox = styled.div`
+  margin-right: 3px;
 `;
 
 const SelectAnotherAreaButton = styled(Button)`
-  background-color: #19b7c2;
-  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #be6134;
+  margin-right: 15px;
 `;
 
 const SelectCurrentAreaButton = styled(Button)`
-  background-color: #2c87f1;
+  display: flex;
+  align-items: center;
+  background-color: #794734;
 `;
 
 export default {
@@ -50,6 +63,7 @@ export default {
   CurrentAreaText,
   ButtonsBox,
   Button,
+  IconBox,
   SelectAnotherAreaButton,
   SelectCurrentAreaButton,
 };

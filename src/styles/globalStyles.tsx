@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
       height: 100%;
     }
     body {
-      background-color: lightgray;
+      background-color: #FFFFFF;
     }
     a{
         text-decoration: none;

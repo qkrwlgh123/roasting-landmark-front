@@ -6,6 +6,8 @@ import { useRecoilValue } from 'recoil';
 import Profile from '../user/profile/profile';
 import { useState } from 'react';
 import { receivePermissionCode } from '../../utils/shared/api/socialLogin/kakaoLogin';
+import Logo from '../../assets/images/home_logo.png';
+import SearchIcon from '../../assets/images/btn_search.png';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -27,37 +29,39 @@ const Header = () => {
   return (
     <Style.HeaderContainer>
       <Style.HeaderContentsBox>
-        <Link to={routes.mainPage}>
-          <Style.LogoBox>로고</Style.LogoBox>
-        </Link>
-        <Style.SearchComponentBox>
-          <Style.SearchCafeInput
-            placeholder="지역 또는 카페명 입력"
-            value={searchKeyword}
-            onChange={handleInputKeyword}
-          />
-          <button onClick={handleStartSearch}>
-            <span>검색</span>
-          </button>
-        </Style.SearchComponentBox>
-        <Link to={routes.cafeShopCreate}>
-          <Style.CreateCafeBox>신규 카페 등록</Style.CreateCafeBox>
-        </Link>
-        <Style.AuthBox>
-          {isLoggedIn ? (
-            <Profile />
-          ) : (
-            <>
-              <Link to={routes.login}>
-                <div>로그인</div>
-              </Link>
-              <Link to={routes.signUp}>
-                <div>회원가입</div>
-              </Link>
-              <div onClick={receivePermissionCode}>카카오 로그인</div>
-            </>
-          )}
-        </Style.AuthBox>
+        <Style.LeftHeaderContentsBox>
+          <Link to={routes.mainPage}>
+            <Style.LogoBox>
+              <img src={Logo} alt="로고_이미지" />
+            </Style.LogoBox>
+          </Link>
+          <Style.SearchComponentBox>
+            <Style.SearchCafeInput
+              placeholder="지역 또는 카페를 검색하세요."
+              value={searchKeyword}
+              onChange={handleInputKeyword}
+            />
+            <div onClick={handleStartSearch}>
+              <img src={SearchIcon} alt="검색아이콘_이미지" />
+            </div>
+          </Style.SearchComponentBox>
+        </Style.LeftHeaderContentsBox>
+        <Style.RightHeaderContentsBox>
+          <Link to={routes.cafeShopCreate}>
+            <Style.CreateCafeBox>신규 카페 등록</Style.CreateCafeBox>
+          </Link>
+          <Style.AuthBox>
+            {isLoggedIn ? (
+              <Profile />
+            ) : (
+              <>
+                <div onClick={receivePermissionCode}>로그인</div>
+
+                {/* <div onClick={receivePermissionCode}>카카오 로그인</div> */}
+              </>
+            )}
+          </Style.AuthBox>
+        </Style.RightHeaderContentsBox>
       </Style.HeaderContentsBox>
     </Style.HeaderContainer>
   );

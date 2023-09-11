@@ -4,6 +4,7 @@ import Style from './profile.style';
 import { UserInfoType } from '../../../types/user';
 import DropMenu from '../dropMenu/dropMenu';
 import { useState } from 'react';
+import ArrowIcon from '../../../assets/images/btn_arrow_header.png';
 
 const Profile = () => {
   const userInfo = useRecoilValue<UserInfoType>(userInfoAtom);
@@ -20,7 +21,7 @@ const Profile = () => {
         <img src={userInfo.profileImage} alt="profile_image" />
       </Style.ProfileImageBox>
       <div>
-        <span>안녕하세요. {userInfo.username}님!</span>
+        <img src={ArrowIcon} onClick={handleClickProfile} alt="arrow_icon" />
       </div>
       {isClickProfile && (
         <DropMenu

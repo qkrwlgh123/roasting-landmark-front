@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const ProfileContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 30px;
 `;
 
 const ProfileImageBox = styled.div`

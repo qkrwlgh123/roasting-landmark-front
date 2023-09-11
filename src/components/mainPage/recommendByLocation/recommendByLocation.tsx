@@ -5,6 +5,8 @@ import LoadingSpinner from '../../../utils/shared/loadingSpinner/loadingSpinner'
 import { CafeShopType } from '../../../types/cafeShop';
 import { useRecoilValue } from 'recoil';
 import { userInfoAtom } from '../../../recoil/authAtoms';
+import AnotherAreaIcon from '../../../assets/images/btn_another_area_bottom2.png';
+import CurrentLocationIcon from '../../../assets/images/btn_current_location_bottom2.png';
 
 const RecommendByLocation = ({
   shopList,
@@ -61,6 +63,9 @@ const RecommendByLocation = ({
       </div>
       <Style.ButtonsBox>
         <Style.SelectAnotherAreaButton>
+          <Style.IconBox>
+            <img src={AnotherAreaIcon} alt="다른지역선택_아이콘" />
+          </Style.IconBox>
           다른 지역 선택
         </Style.SelectAnotherAreaButton>
         {isLoading ? (
@@ -76,6 +81,9 @@ const RecommendByLocation = ({
               )
             }
           >
+            <Style.IconBox>
+              <img src={CurrentLocationIcon} alt="현위치선택_아이콘" />
+            </Style.IconBox>
             현 위치로 설정
           </Style.SelectCurrentAreaButton>
         )}
