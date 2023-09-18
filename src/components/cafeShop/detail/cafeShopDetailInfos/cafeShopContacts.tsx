@@ -4,6 +4,8 @@ import {
   CategoriesContainer,
   CategoryBox,
   ContentBox,
+  DescriptionContainer,
+  DescriptionSubjectBox,
   ParcelAddressBox,
   SubjectBox,
 } from './cafeShopDetailInfosLayout/cafeShopDetailInfosLayout.style';
@@ -11,6 +13,9 @@ import {
 const CafeShopContacts = ({ detailInfo }: { detailInfo: CafeShopType }) => {
   return (
     <CafeShopDetailInfosLayout>
+      <DescriptionContainer>
+        <DescriptionSubjectBox>카페 위치</DescriptionSubjectBox>
+      </DescriptionContainer>
       <CategoriesContainer>
         <CategoryBox>
           <SubjectBox>

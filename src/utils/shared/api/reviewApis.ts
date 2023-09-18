@@ -5,8 +5,9 @@ import { authInstance, defaultInstance } from './axiosInstance';
 // 리뷰 등록
 export const postReview = async (postInfo: PostReviewType) => {
   try {
-    await authInstance.post('review/submit', postInfo);
-    alert('등록되었습니다.');
+    const response = await authInstance.post('review/submit', postInfo);
+
+    return response.status;
   } catch (err) {
     console.log(err);
   }

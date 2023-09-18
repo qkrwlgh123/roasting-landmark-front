@@ -9,37 +9,18 @@ import CafeShopContacts from '../cafeShopDetailInfos/cafeShopContacts';
 const CafeShopDetailInfo = ({
   shopId,
   detailInfo,
-  selectedMenu,
+  participants,
 }: {
   shopId: number;
   detailInfo: CafeShopType;
-  selectedMenu: string;
+  participants: number;
 }) => {
-  const handleRenderInfoBySelectedMenu = (selectedMenu: string) => {
-    switch (selectedMenu) {
-      case '소개':
-        return <CafeShopDescription detailInfo={detailInfo} />;
-
-      case '안내':
-        return <CafeShopContacts detailInfo={detailInfo} />;
-
-      case '위치':
-        return <CafeShopLocation detailInfo={detailInfo} />;
-
-      case '메뉴':
-        return <CafeShopMenu detailInfo={detailInfo} />;
-
-      case '후기':
-        return <CafeShopReviewList shopId={shopId} />;
-
-      default:
-        return <div>알 수 없는 접근입니다.</div>;
-    }
-  };
-
   return (
     <Style.ShopDetailInfoContainer>
-      {handleRenderInfoBySelectedMenu(selectedMenu)}
+      <CafeShopDescription detailInfo={detailInfo} />
+      <CafeShopContacts detailInfo={detailInfo} />
+      <CafeShopMenu detailInfo={detailInfo} />
+      <CafeShopReviewList shopId={shopId} participants={participants} />
     </Style.ShopDetailInfoContainer>
   );
 };

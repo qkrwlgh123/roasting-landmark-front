@@ -1,6 +1,7 @@
 export interface CafeShopType {
   id: number;
   shopName: string;
+  keywords?: string[];
   desertType?: string;
   description?: string;
   roadAddress?: string;

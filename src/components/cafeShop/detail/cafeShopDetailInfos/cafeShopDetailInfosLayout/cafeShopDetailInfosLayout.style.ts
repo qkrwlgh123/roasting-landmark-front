@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
 const DetailInfoLayout = styled.div`
-  margin-top: 15px;
+  margin-top: 40px;
+  border-bottom: 1px solid #e5e8ec;
+  padding-bottom: 30px;
 `;
 
 export const DescriptionContainer = styled.div`
-  border-bottom: 1px solid red;
+  font-size: 22px;
   margin-bottom: 15px;
   padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  span:nth-child(2) {
+    font-size: 18px;
+  }
 `;
 
 export const DescriptionSubjectBox = styled.div`
@@ -45,7 +52,7 @@ export const ParcelAddressBox = styled.div`
 
 export const CategoryBox = styled.li`
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const SubjectBox = styled.div`

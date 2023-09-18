@@ -25,22 +25,22 @@ const CafeShopMap = ({ detailInfo }: { detailInfo: CafeShopType }) => {
     const map = new kakao.maps.Map(container, options);
 
     // 마커가 표시될 위치
-    var markerPosition = new kakao.maps.LatLng(
+    const markerPosition = new kakao.maps.LatLng(
       detailInfo?.latitude,
       detailInfo?.longitude
     );
 
     // 마커를 생성
-    var marker = new kakao.maps.Marker({
+    const marker = new kakao.maps.Marker({
       position: markerPosition,
     });
 
     // 마커가 지도 위에 표시
     marker.setMap(map);
-  }, []);
+  }, [detailInfo]);
   return (
     <CafeShopDetailInfosLayout>
-      <div id="map" style={{ width: '100%', height: '500px' }}></div>
+      <div id="map" style={{ width: '100%', height: '400px' }}></div>
       <Style.AddressContainer>
         <ContentBox>
           <span>{detailInfo?.roadAddress}</span>

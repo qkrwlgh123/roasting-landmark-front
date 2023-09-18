@@ -4,47 +4,34 @@ import HeartIcon from '../../../../assets/images/btn_heart_off.png';
 import DistanceIcon from '../../../../assets/images/btn_distance_bottom2.png';
 import StarOffIcon from '../../../../assets/svg/star_off.svg';
 import { Link } from 'react-router-dom';
+import RateStars from '../../../cafeShop/rateStars/rateStars';
 
 const CafeShop = ({ shopInfos }: { shopInfos: CafeShopType }) => {
-  console.log(shopInfos);
   return (
     <Link to={`/cafeShopDetail/${shopInfos.id}`}>
       <Style.CafeInfoBox>
         <Style.CafeImageBox>
-          <img src={shopInfos?.images[0]} />
+          <img src={shopInfos?.images[0]} alt="represent_image" />
         </Style.CafeImageBox>
         <Style.CafeInfosBox>
           <Style.CafeTitleBox>
             <span>{shopInfos?.shopName}</span>
-            <div>
-              <img src={HeartIcon} />
-            </div>
+            {/* <div>
+              <img src={HeartIcon} alt="heart_icon" />
+            </div> */}
           </Style.CafeTitleBox>
           <Style.CafeHashTagsBox>
-            <span>#해쉬</span>
-            <span>#태그</span>
-            <span>#더미</span>
+            {shopInfos?.keywords?.map((keyword) => (
+              <span key={keyword}>#{keyword}&nbsp; </span>
+            ))}
           </Style.CafeHashTagsBox>
         </Style.CafeInfosBox>
         <Style.RatesDistanceInfoBox>
-          <Style.RatesBox>
-            <>
-              <Style.RateIconsBox>
-                {shopInfos?.rate ? (
-                  <span>평점</span>
-                ) : (
-                  Array.from({ length: 5 }).map((star) => (
-                    <img src={StarOffIcon} width={'16px'} alt="평점_아이콘" />
-                  ))
-                )}
-              </Style.RateIconsBox>
-              <span>0</span>
-            </>
-          </Style.RatesBox>
+          <RateStars rate={shopInfos?.rate!} />
           {shopInfos?.distance ? (
             <Style.DistanceTextBox>
               <Style.DistanceIconBox>
-                <img src={DistanceIcon} />
+                <img src={DistanceIcon} alt="distance_icon" />
               </Style.DistanceIconBox>
               <span>
                 {shopInfos?.distance > 1

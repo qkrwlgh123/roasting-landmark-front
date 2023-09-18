@@ -50,3 +50,19 @@ export const getCurrentLocation = (
     console.log('Geolocation is not available in this browser.');
   }
 };
+
+// 위도, 경도 기반 한글 주소 검색
+export const getCurrentRegion = (
+  { latitude, longitude }: { latitude: number; longitude: number },
+  handleGetCurrentGegion: (region: string) => void
+) => {
+  // 주소-좌표 변환 객체를 생성합니다
+  const geocoder = new kakao.maps.services.Geocoder();
+  geocoder.coord2RegionCode(
+    longitude,
+    latitude,
+    (result: getCurrentPositionResultType, status: string) => {
+      handleGetCurrentGegion(result[0].address_name);
+    }
+  );
+};

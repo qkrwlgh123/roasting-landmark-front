@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const AddressContainer = styled.div`
-  margin-top: 10px;
+  margin-top: 35px;
 `;
 
 export default { AddressContainer };

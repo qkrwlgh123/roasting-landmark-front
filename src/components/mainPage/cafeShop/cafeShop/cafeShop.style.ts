@@ -15,6 +15,8 @@ const CafeImageBox = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
   }
 `;
 
@@ -30,7 +32,7 @@ const CafeTitleBox = styled.div`
   span {
     font-size: 20px;
   }
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 `;
 
 const CafeHashTagsBox = styled.div`
@@ -44,17 +46,6 @@ const RatesDistanceInfoBox = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
-`;
-
-const RatesBox = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #383b40;
-`;
-
-const RateIconsBox = styled.div`
-  margin-right: 5px;
 `;
 
 const DistanceTextBox = styled.div`
@@ -75,8 +66,7 @@ export default {
   CafeTitleBox,
   CafeHashTagsBox,
   RatesDistanceInfoBox,
-  RatesBox,
-  RateIconsBox,
+
   DistanceTextBox,
   DistanceIconBox,
 };

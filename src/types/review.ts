@@ -4,6 +4,7 @@ export interface ReviewType {
   profileImage: string;
   content: string;
   rate: number;
+  createdAt: string;
   answer?: ReviewAnswerType;
 }
 

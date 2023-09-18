@@ -1,9 +1,12 @@
 import { CafeShopMenuType, CafeShopType } from '../../../../types/cafeShop';
+import MenuList from '../../menu/menuList/menuList';
 import CafeShopDetailInfosLayout from './cafeShopDetailInfosLayout/cafeShopDetailInfosLayout';
 import {
   CategoriesContainer,
   CategoryBox,
   ContentBox,
+  DescriptionContainer,
+  DescriptionSubjectBox,
   MenuContainer,
   MenuInfoBox,
   SubjectBox,
@@ -12,21 +15,14 @@ import {
 const CafeShopMenu = ({ detailInfo }: { detailInfo: CafeShopType }) => {
   return (
     <CafeShopDetailInfosLayout>
+      <DescriptionContainer>
+        <DescriptionSubjectBox>메뉴</DescriptionSubjectBox>
+      </DescriptionContainer>
       <CategoriesContainer>
         <CategoryBox>
-          <SubjectBox>
-            <span>메뉴</span>
-          </SubjectBox>
-          <MenuContainer>
-            {detailInfo?.menu?.map((menu: CafeShopMenuType) => (
-              <MenuInfoBox>
-                <span>{menu.food}</span>
-                <span>
-                  {menu.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-                </span>
-              </MenuInfoBox>
-            ))}
-          </MenuContainer>
+          <div style={{ width: '120%' }}>
+            <MenuList menuList={detailInfo?.menu!} />
+          </div>
         </CategoryBox>
       </CategoriesContainer>
     </CafeShopDetailInfosLayout>

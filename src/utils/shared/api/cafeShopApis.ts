@@ -29,12 +29,13 @@ export const getShopDetail = async (id: number) => {
 export const postCreateShop = async (data: FormData) => {
   try {
     const shop = await formDataInstance.post('shop/create', data);
+    return shop.data.id;
   } catch (error) {
     console.log(error);
   }
 };
 
-// 현재 위치 기반(위도, 경도) 카페 리스트 조회
+// 위치 기반(위도, 경도) 카페 리스트 조회
 export const getRecommendByLocationShops = async (data: {
   latitude: number;
   longitude: number;

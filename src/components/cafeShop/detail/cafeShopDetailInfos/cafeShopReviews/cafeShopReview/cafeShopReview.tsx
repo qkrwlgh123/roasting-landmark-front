@@ -6,6 +6,8 @@ import {
 import Style from './cafeShopReview.style';
 import { postReviewAnswer } from '../../../../../../utils/shared/api/reviewApis';
 import ReviewAnswer from '../reviewAnswer/reviewAnswer';
+import RateStars from '../../../../rateStars/rateStars';
+import { convertCreatedDate } from '../../../../../../utils/shared/convert';
 
 const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
   const [isStartedWriteAnswer, setIsStartedWriteAnswer] = useState(false);
@@ -15,7 +17,9 @@ const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
     setIsStartedWriteAnswer((prev) => !prev);
   };
 
-  const handleInputAnswerContent = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputAnswerContent = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setAnswerContent(e.target.value);
   };
 
@@ -23,6 +27,10 @@ const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
     reviewId,
     content,
   }: PostReviewAnswerType) => {
+    if (!content) {
+      alert('답변 내용을 입력해주세요.');
+      return;
+    }
     try {
       await postReviewAnswer({ reviewId, content });
       setIsStartedWriteAnswer(false);
@@ -38,14 +46,25 @@ const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
           <Style.ProfileImageBox>
             <img src={reviewInfo.profileImage} alt="프로필사진" />
           </Style.ProfileImageBox>
-
-          <span>{reviewInfo.username}</span>
+          <div>
+            <Style.UsernameBox>
+              <span>{reviewInfo.username}</span>
+            </Style.UsernameBox>
+            <Style.ReviewExtraInfoContainer>
+              <RateStars rate={reviewInfo?.rate} />
+              <Style.CreatedDateText>
+                &nbsp;&nbsp;|&nbsp;&nbsp;{' '}
+                {convertCreatedDate(reviewInfo?.createdAt)}
+              </Style.CreatedDateText>
+            </Style.ReviewExtraInfoContainer>
+          </div>
         </Style.UserInfoBox>
+
         <Style.ContentBox>
-          <div>{reviewInfo.content}</div>
+          <pre>{reviewInfo.content}</pre>
         </Style.ContentBox>
+
         <Style.AdditionalFeaturesBox>
-          <div>평점:{reviewInfo.rate}</div>
           {!reviewInfo?.answer && (
             <div onClick={handleStartWriteAnswer}>
               {isStartedWriteAnswer ? (
@@ -57,13 +76,14 @@ const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
           )}
         </Style.AdditionalFeaturesBox>
       </Style.ReviewContainer>
+      {/* 후기에 대한 답변 */}
       {reviewInfo?.answer ? (
         <ReviewAnswer answerInfo={reviewInfo?.answer} />
       ) : null}
+      {/* 후기에 대한 답변이 없을시 작성 */}
       {isStartedWriteAnswer && (
         <div>
           <Style.AnswerInput
-            type="text"
             value={answerContent}
             onChange={handleInputAnswerContent}
           />
@@ -75,7 +95,7 @@ const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
               })
             }
           >
-            <span>답변 등록</span>
+            <span>등록</span>
           </button>
         </div>
       )}

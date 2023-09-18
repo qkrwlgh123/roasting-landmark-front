@@ -5,7 +5,6 @@ import {
   CategoryBox,
   ContentBox,
   DescriptionContainer,
-  DescriptionContentBox,
   DescriptionSubjectBox,
   SubjectBox,
 } from './cafeShopDetailInfosLayout/cafeShopDetailInfosLayout.style';
@@ -15,7 +14,6 @@ const CafeShopDescription = ({ detailInfo }: { detailInfo: CafeShopType }) => {
     <CafeShopDetailInfosLayout>
       <DescriptionContainer>
         <DescriptionSubjectBox>카페 소개</DescriptionSubjectBox>
-        <DescriptionContentBox>{detailInfo?.description}</DescriptionContentBox>
       </DescriptionContainer>
       <CategoriesContainer>
         <CategoryBox>

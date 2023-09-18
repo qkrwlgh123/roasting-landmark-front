@@ -8,12 +8,11 @@ const Layout = styled.div`
 `;
 
 const ContentsLayout = styled.div`
-  width: 70%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  padding: 30px;
+  background-color: #ffffff;
 `;
 
 export default { Layout, ContentsLayout };
