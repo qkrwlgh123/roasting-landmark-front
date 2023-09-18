@@ -64,11 +64,12 @@ const SearchCafeInput = styled.input`
   padding: 15px 25px;
 `;
 
-const CreateCafeBox = styled(ContentBox)`
+const ButtonBox = styled(ContentBox)`
   color: #383b40;
   border: 2px solid #adb2bb;
   padding: 10px;
   border-radius: 5px;
+  margin-left: 10px;
 `;
 
 const AuthBox = styled(ContentBox)`
@@ -83,6 +84,6 @@ export default {
   LogoBox,
   SearchComponentBox,
   SearchCafeInput,
-  CreateCafeBox,
+  ButtonBox,
   AuthBox,
 };

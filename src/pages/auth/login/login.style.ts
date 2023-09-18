@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
-const FormContainer = styled.form`
-  display: flex;
-  justify-content: center;
+const TitleBox = styled.div`
+  font-size: 30px;
+  margin-bottom: 70px;
 `;
 
-const FormInnerBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 30px;
-  margin-top: 50px;
-  width: 50%;
+const ButtonsBox = styled.div`
+  div {
+    cursor: pointer;
+  }
 `;
 
-export default { FormContainer, FormInnerBox };
+export default { TitleBox, ButtonsBox };

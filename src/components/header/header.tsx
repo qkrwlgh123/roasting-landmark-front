@@ -5,7 +5,6 @@ import { isLoggedInAtom } from '../../recoil/authAtoms';
 import { useRecoilValue } from 'recoil';
 import Profile from '../user/profile/profile';
 import { useState } from 'react';
-import { receivePermissionCode } from '../../utils/shared/api/socialLogin/kakaoLogin';
 import Logo from '../../assets/images/home_logo.png';
 import SearchIcon from '../../assets/images/btn_search.png';
 
@@ -37,7 +36,7 @@ const Header = () => {
           </Link>
           <Style.SearchComponentBox>
             <Style.SearchCafeInput
-              placeholder="지역 또는 카페를 검색하세요."
+              placeholder="카페를 검색해보세요."
               value={searchKeyword}
               onChange={handleInputKeyword}
             />
@@ -47,18 +46,19 @@ const Header = () => {
           </Style.SearchComponentBox>
         </Style.LeftHeaderContentsBox>
         <Style.RightHeaderContentsBox>
-          <Link to={routes.cafeShopCreate}>
-            <Style.CreateCafeBox>신규 카페 등록</Style.CreateCafeBox>
-          </Link>
+          {isLoggedIn && (
+            <Link to={routes.selectKeywords}>
+              <Style.ButtonBox>신규 카페 등록</Style.ButtonBox>
+            </Link>
+          )}
+
           <Style.AuthBox>
             {isLoggedIn ? (
               <Profile />
             ) : (
-              <>
-                <div onClick={receivePermissionCode}>로그인</div>
-
-                {/* <div onClick={receivePermissionCode}>카카오 로그인</div> */}
-              </>
+              <Link to={routes.login}>
+                <Style.ButtonBox>로그인</Style.ButtonBox>
+              </Link>
             )}
           </Style.AuthBox>
         </Style.RightHeaderContentsBox>

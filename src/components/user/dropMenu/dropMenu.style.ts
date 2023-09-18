@@ -6,8 +6,12 @@ const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 180px;
-  background-color: gray;
+  background-color: #ffffff;
   border: 1px solid white;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 999;
 `;
 
 const MenuBox = styled.div`
