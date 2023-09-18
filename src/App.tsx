@@ -14,33 +14,11 @@ import { isLoggedInAtom, userInfoAtom } from './recoil/authAtoms';
 import { UserInfoType } from './types/user';
 import SubmitReview from './pages/cafeShop/review/submitReview/submitReview';
 import SearchResult from './pages/cafeShop/searchResult/searchResult';
+import SelectKeywordsPage from './pages/cafeShop/createPage/selectKeywordsPage/selectKeywordsPage';
+import NotFound from './pages/notFound/notFound';
+import CompletePage from './pages/cafeShop/createPage/completePage/completePage';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInAtom);
-  const [userInfo, setUserInfo] = useRecoilState<UserInfoType>(userInfoAtom);
-
-  // 토큰 변조 방지를 위한 유효성 검사
-  // useEffect(() => {
-  //   const handleRetrieveUserInfo = async () => {
-  //     const token = localStorage.getItem('token');
-  //     if (token && isLoggedIn) {
-  //       const isValidate = await handleValidateToken();
-
-  //       if (!isValidate) {
-  //         alert('유효하지 않은 접근입니다.');
-  //         localStorage.removeItem('token');
-  //         setIsLoggedIn(false);
-  //         setUserInfo({
-  //           userId: null,
-  //           username: '',
-  //           profileImage: '',
-  //           profileDescription: '',
-  //         });
-  //       }
-  //     }
-  //   };
-  //   handleRetrieveUserInfo();
-  // }, []);
   return (
     <>
       <GlobalStyles />
@@ -50,15 +28,21 @@ const App = () => {
           <Route path={routes.signUp} element={<SignUp />} />
           <Route path={routes.login} element={<Login />} />
           <Route
+            path={routes.selectKeywords}
+            element={<SelectKeywordsPage />}
+          />
+          <Route
             path={routes.cafeShopCreate}
             element={<CafeShopCreatePage />}
           />
+          <Route path={routes.createComplete} element={<CompletePage />} />
           <Route
             path={routes.cafeShopDetail}
             element={<CafeShopDetailPage />}
           />
           <Route path={routes.writeReview} element={<SubmitReview />} />
           <Route path={routes.searchResult} element={<SearchResult />} />
+          <Route path="/404" element={<NotFound />} />
         </Routes>
       </MainLayout>
     </>

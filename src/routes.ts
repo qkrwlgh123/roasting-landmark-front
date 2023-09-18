@@ -4,6 +4,8 @@ export const routes = {
   login: '/login',
   writeReview: '/writeReview',
   cafeShopDetail: '/cafeShopDetail/:id',
-  cafeShopCreate: '/cafeShopCreate',
+  selectKeywords: '/cafeShopCreate/0',
+  cafeShopCreate: '/cafeShopCreate/1',
+  createComplete: '/cafeShopCreate/2',
   searchResult: '/search/:keyword',
 };
