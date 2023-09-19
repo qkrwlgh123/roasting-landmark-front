@@ -4,6 +4,8 @@ import { isLoggedInAtom, userInfoAtom } from '../../../recoil/authAtoms';
 import { logout } from '../../../utils/shared/api/authAPis';
 import { UserInfoType } from '../../../types/user';
 import { useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { routes } from '../../../routes';
 
 const DropMenu = ({
   isClickProfile,
@@ -12,6 +14,7 @@ const DropMenu = ({
   isClickProfile: boolean;
   handleClickProfile: () => void;
 }) => {
+  const navigate = useNavigate();
   // 로그아웃 시 유저 정보, 로그인 상태 변경
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInAtom);
 
@@ -26,6 +29,11 @@ const DropMenu = ({
       profileDescription: '',
     });
     logout();
+  };
+
+  const handleClickMenu = () => {
+    navigate(routes.myCreatedList);
+    handleClickProfile();
   };
 
   const dropMenuRef = useRef<HTMLDivElement>(null);
@@ -51,7 +59,8 @@ const DropMenu = ({
 
   return (
     <Style.MenuContainer ref={dropMenuRef}>
-      <Style.MenuBox>등록한 카페</Style.MenuBox>
+      <Style.MenuBox onClick={handleClickMenu}>등록한 카페</Style.MenuBox>
+
       <Style.MenuBox onClick={handleLogout}>로그아웃</Style.MenuBox>
     </Style.MenuContainer>
   );

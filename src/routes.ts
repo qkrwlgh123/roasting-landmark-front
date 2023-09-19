@@ -8,4 +8,5 @@ export const routes = {
   cafeShopCreate: '/cafeShopCreate/1',
   createComplete: '/cafeShopCreate/2',
   searchResult: '/search/:keyword',
+  myCreatedList: '/myList',
 };

@@ -13,4 +13,15 @@ const ContentsLayout = styled.div`
   height: 100%;
 `;
 
-export default { Layout, ContentsLayout };
+const Overlay = styled.div<{ active: boolean }>`
+  display: ${(props) => (props.active ? 'block' : 'none')};
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 어두운 배경색과 투명도 설정 */
+  z-index: 1000; /* 다른 요소 위에 오게 설정 */
+`;
+
+export default { Layout, ContentsLayout, Overlay };

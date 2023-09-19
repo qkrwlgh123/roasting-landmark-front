@@ -8,6 +8,7 @@ import { userInfoAtom } from '../../../recoil/authAtoms';
 import AnotherAreaIcon from '../../../assets/images/btn_another_area_bottom2.png';
 import CurrentLocationIcon from '../../../assets/images/btn_current_location_bottom2.png';
 import SearchByAddress from '../searchByAddress/searchByAddress';
+import LoadingLayout from '../../layout/loadingLayout/loadingLayout';
 
 const RecommendByLocation = ({
   currentLocation,
@@ -64,6 +65,11 @@ const RecommendByLocation = ({
   }, [currentLocation]);
   return (
     <>
+      {isLoading && (
+        <LoadingLayout>
+          <LoadingSpinner />
+        </LoadingLayout>
+      )}
       {isSearchingAddress && (
         <SearchByAddress
           handleGetCurrentLocation={handleGetCurrentLocation}
@@ -96,25 +102,22 @@ const RecommendByLocation = ({
             </Style.IconBox>
             다른 지역 선택
           </Style.SelectAnotherAreaButton>
-          {isLoading ? (
-            <LoadingSpinner />
-          ) : (
-            <Style.SelectCurrentAreaButton
-              onClick={() =>
-                getCurrentLocation(
-                  handleGetCurrentGegion,
-                  handleGetCurrentLocation,
-                  handleSetShopList,
-                  handleChangleLoadingState
-                )
-              }
-            >
-              <Style.IconBox>
-                <img src={CurrentLocationIcon} alt="현위치선택_아이콘" />
-              </Style.IconBox>
-              현 위치로 설정
-            </Style.SelectCurrentAreaButton>
-          )}
+
+          <Style.SelectCurrentAreaButton
+            onClick={() =>
+              getCurrentLocation(
+                handleGetCurrentGegion,
+                handleGetCurrentLocation,
+                handleSetShopList,
+                handleChangleLoadingState
+              )
+            }
+          >
+            <Style.IconBox>
+              <img src={CurrentLocationIcon} alt="현위치선택_아이콘" />
+            </Style.IconBox>
+            현 위치로 설정
+          </Style.SelectCurrentAreaButton>
         </Style.ButtonsBox>
       </Style.RecommendContainer>
     </>

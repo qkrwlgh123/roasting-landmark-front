@@ -17,6 +17,7 @@ import SearchResult from './pages/cafeShop/searchResult/searchResult';
 import SelectKeywordsPage from './pages/cafeShop/createPage/selectKeywordsPage/selectKeywordsPage';
 import NotFound from './pages/notFound/notFound';
 import CompletePage from './pages/cafeShop/createPage/completePage/completePage';
+import MyCreatedList from './pages/myCreatedList/myCreatedList';
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
           />
           <Route path={routes.writeReview} element={<SubmitReview />} />
           <Route path={routes.searchResult} element={<SearchResult />} />
+          <Route path={routes.myCreatedList} element={<MyCreatedList />} />
           <Route path="/404" element={<NotFound />} />
         </Routes>
       </MainLayout>

@@ -8,7 +8,13 @@ import { useState } from 'react';
 import Logo from '../../assets/images/home_logo.png';
 import SearchIcon from '../../assets/images/btn_search.png';
 
-const Header = () => {
+const Header = ({
+  handleBlur,
+  handleFocus,
+}: {
+  handleBlur: () => void;
+  handleFocus: () => void;
+}) => {
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
 
@@ -36,9 +42,11 @@ const Header = () => {
           </Link>
           <Style.SearchComponentBox>
             <Style.SearchCafeInput
-              placeholder="카페를 검색해보세요."
+              placeholder="카페 또는 지역명으로 검색해보세요."
               value={searchKeyword}
               onChange={handleInputKeyword}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
             <div onClick={handleStartSearch}>
               <img src={SearchIcon} alt="검색아이콘_이미지" />
@@ -46,12 +54,16 @@ const Header = () => {
           </Style.SearchComponentBox>
         </Style.LeftHeaderContentsBox>
         <Style.RightHeaderContentsBox>
+          <Style.ButtonBox>
+            <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
+              문의 남기기
+            </a>
+          </Style.ButtonBox>
           {isLoggedIn && (
             <Link to={routes.selectKeywords}>
               <Style.ButtonBox>신규 카페 등록</Style.ButtonBox>
             </Link>
           )}
-
           <Style.AuthBox>
             {isLoggedIn ? (
               <Profile />

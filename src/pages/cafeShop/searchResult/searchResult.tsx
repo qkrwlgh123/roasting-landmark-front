@@ -3,6 +3,9 @@ import { CafeShopType } from '../../../types/cafeShop';
 import { searchByKeyword } from '../../../utils/shared/api/cafeShopApis';
 import { useLocation, useParams } from 'react-router-dom';
 import CafeShop from '../../../components/mainPage/cafeShop/cafeShop/cafeShop';
+import Style from './searchResult.style';
+import MyCreatedListLayout from '../../../components/layout/myCreatedListLayout/myCreatedListLayout';
+import ExtendedCafeShopList from '../../../components/cafeShop/extended/extendedCafeShopList/extendedCafeShopList';
 
 const SearchResult = () => {
   const { keyword } = useParams();
@@ -19,16 +22,14 @@ const SearchResult = () => {
     }
   }, [keyword]);
   return (
-    <div>
-      <span>{keyword} 검색 결과</span>
-      <div>
-        {searchedList.map((shop) => (
-          <div key={shop.id}>
-            <CafeShop shopInfos={shop} />
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+      <Style.TitleBox>
+        <span>{keyword} 검색결과</span>
+      </Style.TitleBox>
+      <MyCreatedListLayout>
+        <ExtendedCafeShopList myCreatedList={searchedList} />
+      </MyCreatedListLayout>
+    </>
   );
 };
 
