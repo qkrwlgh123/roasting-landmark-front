@@ -1,5 +1,9 @@
 import { FieldValues } from 'react-hook-form';
-import { defaultInstance, formDataInstance } from './axiosInstance';
+import {
+  authInstance,
+  defaultInstance,
+  formDataInstance,
+} from './axiosInstance';
 
 // 모든 카페 목록 조회
 export const getAllShops = async () => {
@@ -11,10 +15,20 @@ export const getAllShops = async () => {
   }
 };
 
+// 내가 등록한 카페 목록 조회
+export const getMyShops = async () => {
+  try {
+    const { data } = await authInstance.get(`/shop/myList`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // 단욀 카페 목록 조회
 export const getShopDetail = async (id: number) => {
   try {
-    const { data } = await defaultInstance.get(`/shop/detail`, {
+    const { data } = await authInstance.get(`/shop/detail`, {
       params: {
         id,
       },
@@ -55,7 +69,7 @@ export const getRecommendByLocationShops = async (data: {
 // 카페명 또는 지역 검색
 export const searchByKeyword = async (keyword: string) => {
   try {
-    const searchedList = await defaultInstance.get(`/shop/search`, {
+    const searchedList = await authInstance.get(`/shop/search`, {
       params: {
         keyword,
       },

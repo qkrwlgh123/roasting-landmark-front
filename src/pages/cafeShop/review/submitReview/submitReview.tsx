@@ -29,7 +29,6 @@ const SubmitReview = () => {
       content: data.content,
       rate: Number(data.rate),
       shopId,
-      userId,
     };
     const postResponse = await postReview(postInfo);
     if (postResponse === 201) {

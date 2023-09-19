@@ -9,7 +9,13 @@ import ReviewAnswer from '../reviewAnswer/reviewAnswer';
 import RateStars from '../../../../rateStars/rateStars';
 import { convertCreatedDate } from '../../../../../../utils/shared/convert';
 
-const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
+const CafeShopReview = ({
+  reviewInfo,
+  isCreator,
+}: {
+  reviewInfo: ReviewType;
+  isCreator: boolean;
+}) => {
   const [isStartedWriteAnswer, setIsStartedWriteAnswer] = useState(false);
   const [answerContent, setAnswerContent] = useState('');
 
@@ -65,7 +71,7 @@ const CafeShopReview = ({ reviewInfo }: { reviewInfo: ReviewType }) => {
         </Style.ContentBox>
 
         <Style.AdditionalFeaturesBox>
-          {!reviewInfo?.answer && (
+          {!reviewInfo?.answer && isCreator && (
             <div onClick={handleStartWriteAnswer}>
               {isStartedWriteAnswer ? (
                 <button>작성 취소</button>

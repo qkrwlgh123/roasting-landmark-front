@@ -17,7 +17,6 @@ export interface ReviewAnswerType {
 }
 
 export interface PostReviewType {
-  userId: number | null;
   shopId: number;
   rate: number;
   content: string;

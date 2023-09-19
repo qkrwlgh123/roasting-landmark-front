@@ -1,3 +1,5 @@
+import { ReviewType } from './review';
+
 export interface CafeShopType {
   id: number;
   shopName: string;
@@ -20,7 +22,9 @@ export interface CafeShopType {
   website?: string;
   menu?: { food: string; price: string }[];
   distance?: number;
-  reviews?: string[]; // 타입 고쳐야한다.
+  reviews?: string[];
+  shop_review?: ReviewType[];
+  isCreator: boolean;
 }
 
 export type CafeShopImageType = string;

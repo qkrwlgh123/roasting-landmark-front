@@ -20,7 +20,11 @@ const CafeShopDetailInfo = ({
       <CafeShopDescription detailInfo={detailInfo} />
       <CafeShopContacts detailInfo={detailInfo} />
       <CafeShopMenu detailInfo={detailInfo} />
-      <CafeShopReviewList shopId={shopId} participants={participants} />
+      <CafeShopReviewList
+        shopId={shopId}
+        participants={participants}
+        isCreator={detailInfo?.isCreator}
+      />
     </Style.ShopDetailInfoContainer>
   );
 };

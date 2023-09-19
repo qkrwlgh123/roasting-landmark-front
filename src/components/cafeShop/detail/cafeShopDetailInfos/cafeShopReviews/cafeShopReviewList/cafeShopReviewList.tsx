@@ -11,9 +11,11 @@ import Style from './cafeShopReviewList.style';
 const CafeShopReviewList = ({
   shopId,
   participants,
+  isCreator,
 }: {
   shopId: number;
   participants: number;
+  isCreator: boolean;
 }) => {
   const [reviewList, setReviewList] = useState<ReviewType[]>([]);
 
@@ -33,7 +35,11 @@ const CafeShopReviewList = ({
       </DescriptionContainer>
       {reviewList?.length > 0 ? (
         reviewList?.map((reviewInfo: ReviewType) => (
-          <CafeShopReview key={reviewInfo.username} reviewInfo={reviewInfo} />
+          <CafeShopReview
+            key={reviewInfo.username}
+            reviewInfo={reviewInfo}
+            isCreator={isCreator}
+          />
         ))
       ) : (
         <span>후기가 없습니다</span>
