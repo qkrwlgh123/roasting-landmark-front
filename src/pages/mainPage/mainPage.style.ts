@@ -4,6 +4,9 @@ const KeywordsListLayout = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  @media (max-width: 1000px) {
+    overflow-x: scroll;
+  }
 `;
 
 const KeywordsBox = styled.div`
