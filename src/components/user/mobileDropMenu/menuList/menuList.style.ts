@@ -27,10 +27,4 @@ const MenuBox = styled.div`
   }
 `;
 
-const MobileMenuBox = styled(MenuBox)`
-  @media (min-width: 1000px) {
-    display: none;
-  }
-`;
-
-export default { MenuContainer, MenuBox, MobileMenuBox };
+export default { MenuContainer, MenuBox };

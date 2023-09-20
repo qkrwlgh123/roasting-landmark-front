@@ -5,6 +5,7 @@ const RatesBox = styled.div`
   align-items: center;
   font-size: 14px;
   color: #383b40;
+  font-weight: 500;
 `;
 
 const RateIconsBox = styled.div`

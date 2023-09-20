@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
       height: 100%;
     }
     body {
+      font-family: 'pretendard';
+      white-space: nowrap;
       background-color: #FFFFFF;
     }
     a{
@@ -16,18 +18,20 @@ const GlobalStyles = createGlobalStyle`
     }
     *{
         box-sizing: border-box;
-    }
+      }
     input, textarea { 
+      font-family: 'pretendard';
       -moz-user-select: auto;
       -webkit-user-select: auto;
       -ms-user-select: auto;
       user-select: auto;
     }
-    input:focus {
+    input:focus {    
       outline: none;
     }
 
-    button {
+    button {    
+      font-family: 'pretendard';
       border: none;
       background: none;
       padding: 0;

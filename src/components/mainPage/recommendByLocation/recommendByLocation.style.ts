@@ -14,6 +14,7 @@ const RecommendContainer = styled.div`
   background-position: center;
   color: #ffffff;
   font-size: 35px;
+  font-weight: 500;
 `;
 
 const FirstTextBox = styled.div`
@@ -24,9 +25,7 @@ const FirstTextBox = styled.div`
 
 const SecondText = styled.span``;
 
-const CurrentAreaText = styled(SecondText)`
-  font-weight: 600;
-`;
+const CurrentAreaText = styled(SecondText)``;
 
 const ButtonsBox = styled.div`
   display: flex;
@@ -34,6 +33,7 @@ const ButtonsBox = styled.div`
 `;
 
 const Button = styled.button`
+  font-weight: 300;
   border-radius: 20px;
   padding: 10px 35px;
   color: #ffffff;

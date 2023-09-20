@@ -7,6 +7,7 @@ import Profile from '../user/profile/profile';
 import { useState } from 'react';
 import Logo from '../../assets/images/home_logo.png';
 import SearchIcon from '../../assets/images/btn_search.png';
+import MobileDropMenu from '../user/mobileDropMenu/mobileDropMenu';
 
 const Header = ({
   handleBlur,
@@ -68,9 +69,12 @@ const Header = ({
             {isLoggedIn ? (
               <Profile />
             ) : (
-              <Link to={routes.login}>
-                <Style.ButtonBox>로그인</Style.ButtonBox>
-              </Link>
+              <>
+                <Link to={routes.login}>
+                  <Style.ButtonBox>로그인</Style.ButtonBox>
+                </Link>
+                <MobileDropMenu />
+              </>
             )}
           </Style.AuthBox>
         </Style.RightHeaderContentsBox>

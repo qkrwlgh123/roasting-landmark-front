@@ -17,6 +17,11 @@ const HeaderContentsBox = styled.ul`
   align-items: center;
   height: 100%;
   width: 70%;
+  @media (max-width: 1000px) {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const LeftHeaderContentsBox = styled.div`
@@ -31,6 +36,7 @@ const RightHeaderContentsBox = styled.div`
 
 const ContentBox = styled.li`
   cursor: pointer;
+  font-weight: 500;
 `;
 
 const LogoBox = styled(ContentBox)`
@@ -50,6 +56,9 @@ const SearchComponentBox = styled(ContentBox)`
   align-items: center;
   background-color: #f4f6f8;
   border-radius: 24px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const SearchCafeInput = styled.input`
@@ -59,6 +68,7 @@ const SearchCafeInput = styled.input`
   border-radius: 24px;
   &::placeholder {
     color: #adb2bb;
+    font-weight: 300;
   }
   border: none;
   padding: 15px 25px;
@@ -70,6 +80,9 @@ const ButtonBox = styled(ContentBox)`
   padding: 10px;
   border-radius: 5px;
   margin-left: 10px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const AuthBox = styled(ContentBox)`

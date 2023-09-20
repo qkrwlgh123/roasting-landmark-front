@@ -31,6 +31,7 @@ const CafeTitleBox = styled.div`
   align-items: center;
   span {
     font-size: 20px;
+    font-weight: 500;
   }
   margin-bottom: 15px;
 `;
@@ -38,6 +39,7 @@ const CafeTitleBox = styled.div`
 const CafeHashTagsBox = styled.div`
   span {
     font-size: 13px;
+    font-weight: 300;
   }
 `;
 
@@ -53,6 +55,7 @@ const DistanceTextBox = styled.div`
   align-items: center;
   font-size: 11px;
   color: #737984;
+  font-weight: 300;
 `;
 
 const DistanceIconBox = styled.div`
