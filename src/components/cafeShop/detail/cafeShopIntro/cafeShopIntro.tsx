@@ -37,11 +37,11 @@ const CafeShopIntro = ({
         </Style.CafeRateBox>
         <Style.CafeTitleContainer>
           <Style.CafeName>{introInfo?.shopName}</Style.CafeName>
-          <div>
+          <Style.CafeShareIconBox>
             <button onClick={handleSwitchShareModel}>
               <img src={ShareIcon} alt="share_icon" />
             </button>
-          </div>
+          </Style.CafeShareIconBox>
         </Style.CafeTitleContainer>
         <Style.CafeKeywords>
           {introInfo?.keywords?.map((keyword) => (
@@ -50,9 +50,9 @@ const CafeShopIntro = ({
             </div>
           ))}
         </Style.CafeKeywords>
-        <div>
+        <Style.CafeDescriptionBox>
           <pre>{introInfo?.description}</pre>
-        </div>
+        </Style.CafeDescriptionBox>
         <div>
           {isLoggedIn ? (
             <Link to={routes.writeReview} state={introInfo}>

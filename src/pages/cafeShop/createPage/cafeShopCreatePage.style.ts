@@ -14,6 +14,9 @@ const FormInnerBox = styled.div`
   padding: 30px;
   margin-top: 50px;
   width: 50%;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
   input,
   textarea {
     margin-bottom: 35px;
@@ -73,6 +76,7 @@ const HolidayCheckboxsContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 35px;
+  flex-wrap: wrap;
 `;
 
 const HolidayCheckbox = styled.div`
@@ -134,6 +138,7 @@ const ImageInput = styled.input`
 const PrevImagesContainer = styled.div`
   display: flex;
   margin: 10px 0 35px 0;
+  flex-wrap: wrap;
 `;
 
 const PrevImageBox = styled.div`
@@ -181,6 +186,12 @@ const MenuInputContainer = styled.div`
 export const SubmitButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  @media (max-width: 800px) {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -190,6 +201,10 @@ export const SubmitButton = styled.button`
   padding: 10px;
   width: 136px;
   height: 40px;
+  @media (max-width: 800px) {
+    width: 100%;
+    border-radius: 0;
+  }
 `;
 
 export default {

@@ -7,6 +7,7 @@ const CafeInfoBox = styled.div`
   flex-direction: column;
   border-radius: 12px;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+  line-height: 1;
 `;
 
 const CafeImageBox = styled.div`

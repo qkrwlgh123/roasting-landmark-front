@@ -5,6 +5,9 @@ const AnswerContainer = styled.div`
   margin: -40px 0 50px 20px;
   padding: 30px;
   border-radius: 8px;
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
 `;
 
 const AnswerUpsideAreaBox = styled.div`

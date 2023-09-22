@@ -38,4 +38,24 @@ const CompleteButtonBox = styled.div`
   }
 `;
 
-export default { Layout, CompleteTextBox, CompleteButtonBox };
+const SubmitButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const SubmitButton = styled.button`
+  background-color: #c9612d;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 10px;
+  width: 136px;
+  height: 40px;
+`;
+
+export default {
+  Layout,
+  CompleteTextBox,
+  CompleteButtonBox,
+  SubmitButtonContainer,
+  SubmitButton,
+};

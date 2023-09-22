@@ -13,6 +13,9 @@ const ContentsLayout = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export default { Layout, ContentsLayout };

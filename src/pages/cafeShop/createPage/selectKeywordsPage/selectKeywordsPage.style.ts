@@ -12,6 +12,12 @@ const TitleBox = styled.div<{ isPageVisible: boolean }>`
   opacity: ${(props) => (props.isPageVisible ? 1 : 0)};
   transform: translateY(${(props) => (props.isPageVisible ? '0' : '20px')});
   transition: opacity 0.5s ease, transform 0.5s ease;
+  @media (max-width: 1200px) {
+    font-size: 20px;
+    span:nth-child(2) {
+      font-size: 15px;
+    }
+  }
 `;
 
 const KeywordsList = styled.div`
@@ -22,6 +28,10 @@ const KeywordsList = styled.div`
   grid-template-columns: repeat(3, 1fr); /* 3열 생성 */
   grid-template-rows: repeat(3, 1fr); /* 3행 생성 */
   gap: 10px; /* 그리드 아이템 사이의 간격 설정 */
+  @media (max-width: 1200px) {
+    width: 100%;
+    padding: 80px 15px;
+  }
 `;
 
 const bounceAnimation = keyframes`
@@ -38,7 +48,7 @@ const Keyword = styled.div<{
   isClicked: boolean;
   animationDelay: number;
 }>`
-  width: 200px;
+  width: 100%;
   height: 100px;
   padding: 15px;
 

@@ -13,13 +13,21 @@ export const DescriptionContainer = styled.div`
   display: flex;
   align-items: center;
   span:nth-child(2) {
+    display: inline-block;
+    margin-bottom: 8px;
     font-size: 18px;
+    @media (max-width: 800px) {
+      font-size: 13px;
+    }
   }
 `;
 
 export const DescriptionSubjectBox = styled.div`
   margin-bottom: 10px;
   font-weight: 700;
+  @media (max-width: 800px) {
+    font-size: 16px;
+  }
 `;
 
 export const DescriptionContentBox = styled.div``;
@@ -41,12 +49,18 @@ export const ParcelAddressBox = styled.div`
     font-weight: 300;
     span {
       font-size: 13px;
+      @media (max-width: 800px) {
+        font-size: 13px;
+      }
     }
   }
   /* 지번 주소 내용 */
   span:nth-child(2) {
     font-size: 15px;
     font-weight: 300;
+    @media (max-width: 800px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -58,11 +72,17 @@ export const CategoryBox = styled.li`
 export const SubjectBox = styled.div`
   width: 110px;
   font-weight: 300;
+  @media (max-width: 800px) {
+    font-size: 13px;
+  }
 `;
 
 export const ContentBox = styled.div`
   a {
     text-decoration: underline;
+  }
+  @media (max-width: 800px) {
+    font-size: 13px;
   }
 `;
 

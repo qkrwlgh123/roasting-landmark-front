@@ -26,7 +26,7 @@ const CafeShopDetailPage = () => {
     };
     fetchShopDetail(shopId);
   }, []);
-  console.log(shopInfo);
+
   return (
     <CafeDetailLayout>
       <CafeShopImageList images={shopInfo?.images!} />

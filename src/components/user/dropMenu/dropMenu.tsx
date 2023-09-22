@@ -31,8 +31,13 @@ const DropMenu = ({
     logout();
   };
 
-  const handleClickMenu = () => {
+  const handleClickMyListMenu = () => {
     navigate(routes.myCreatedList);
+    handleClickProfile();
+  };
+
+  const handleClickCreateShop = () => {
+    navigate(routes.selectKeywords);
     handleClickProfile();
   };
 
@@ -59,8 +64,10 @@ const DropMenu = ({
 
   return (
     <Style.MenuContainer ref={dropMenuRef}>
-      <Style.MobileMenuBox>신규 카페 등록</Style.MobileMenuBox>
-      <Style.MenuBox onClick={handleClickMenu}>등록한 카페</Style.MenuBox>
+      <Style.MobileMenuBox onClick={handleClickCreateShop}>
+        신규 카페 등록
+      </Style.MobileMenuBox>
+      <Style.MenuBox onClick={handleClickMyListMenu}>등록한 카페</Style.MenuBox>
       <Style.MobileMenuBox>문의 남기기</Style.MobileMenuBox>
       <Style.MenuBox onClick={handleLogout}>로그아웃</Style.MenuBox>
     </Style.MenuContainer>

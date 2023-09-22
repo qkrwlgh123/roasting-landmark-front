@@ -27,6 +27,12 @@ const UsernameBox = styled.div`
 
 const ContentBox = styled.div`
   padding: 25px 15px;
+  @media (max-width: 800px) {
+    padding-left: 0;
+    pre {
+      white-space: normal;
+    }
+  }
 `;
 
 const ReviewExtraInfoContainer = styled.div`

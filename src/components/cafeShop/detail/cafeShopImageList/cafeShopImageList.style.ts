@@ -5,6 +5,12 @@ const ListBox = styled.div`
   width: 75%;
   height: 400px;
   margin-bottom: 45px;
+  @media (max-width: 1000px) {
+    height: 230px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 `;
 
 const RepresentImageBox = styled.div`
@@ -21,4 +27,25 @@ const OtherImagesBox = styled.div`
   gap: 3px; /* 열과 행 사이의 간격을 설정합니다. 원하는 값으로 조정할 수 있습니다. */
 `;
 
-export default { ListBox, RepresentImageBox, OtherImagesBox };
+const DesktopImagesListBox = styled.div`
+  display: flex;
+  width: 100%;
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+const MobileImagesListBox = styled.div`
+  display: flex;
+  @media (min-width: 1000px) {
+    display: none;
+  }
+`;
+
+export default {
+  ListBox,
+  RepresentImageBox,
+  OtherImagesBox,
+  DesktopImagesListBox,
+  MobileImagesListBox,
+};

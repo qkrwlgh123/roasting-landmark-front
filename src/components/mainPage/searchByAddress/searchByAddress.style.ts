@@ -11,6 +11,9 @@ const ModalBackground = styled.div`
 
 const AddressInputBox = styled.div`
   width: 50%;
+  @media (max-width: 1200px) {
+    width: 80%;
+  }
 `;
 
 const AddressInput = styled.input`
@@ -31,6 +34,9 @@ const SearchAddressContainer = styled.div`
   padding: 20px;
   background-color: #ffffff;
   width: 50%;
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
   height: 75%; /* 중앙 배치 */
   /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
   /* translate는 본인의 크기 기준으로 작동한다. */
@@ -53,6 +59,9 @@ const AutoCompletedWordsContainer = styled.div`
   margin-top: 40px;
   border-radius: 8px;
   z-index: 2;
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
 `;
 
 const AutoCompletedWordBox = styled.div`

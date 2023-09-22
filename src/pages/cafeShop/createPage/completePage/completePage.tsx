@@ -28,9 +28,9 @@ const CompletePage = () => {
         <Style.CompleteTextBox>등록이 완료되었습니다.</Style.CompleteTextBox>
         <Link to={`/cafeShopDetail/${shopId}`}>
           <Style.CompleteButtonBox>
-            <SubmitButtonContainer>
-              <SubmitButton>확인하러 가기</SubmitButton>
-            </SubmitButtonContainer>
+            <Style.SubmitButtonContainer>
+              <Style.SubmitButton>확인하러 가기</Style.SubmitButton>
+            </Style.SubmitButtonContainer>
           </Style.CompleteButtonBox>
         </Link>
       </Style.Layout>
