@@ -11,7 +11,8 @@ const Layout = styled.div`
 const CompleteTextBox = styled.div`
   font-size: 40px;
   margin-bottom: 30px;
-
+  color: #383b40;
+  font-weight: 500;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;

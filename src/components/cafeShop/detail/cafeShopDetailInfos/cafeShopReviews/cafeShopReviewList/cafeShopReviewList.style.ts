@@ -4,4 +4,12 @@ const ReviewListContainer = styled.div`
   margin-top: 40px;
 `;
 
-export default { ReviewListContainer };
+const ParticipantsText = styled.span`
+  color: #383b40;
+`;
+
+const NoReviewText = styled.span`
+  color: #383b40;
+`;
+
+export default { ReviewListContainer, ParticipantsText, NoReviewText };

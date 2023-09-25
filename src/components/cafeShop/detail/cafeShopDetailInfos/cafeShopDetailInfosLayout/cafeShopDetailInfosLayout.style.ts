@@ -24,7 +24,8 @@ export const DescriptionContainer = styled.div`
 
 export const DescriptionSubjectBox = styled.div`
   margin-bottom: 10px;
-  font-weight: 700;
+  font-weight: 500;
+  color: #383b40;
   @media (max-width: 800px) {
     font-size: 16px;
   }
@@ -44,9 +45,10 @@ export const ParcelAddressBox = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    border: 1px solid black;
-    padding: 2px;
+    border: 1px solid #d8dadd;
+    padding: 2px 15px;
     font-weight: 300;
+    border-radius: 5px;
     span {
       font-size: 13px;
       @media (max-width: 800px) {
@@ -64,6 +66,11 @@ export const ParcelAddressBox = styled.div`
   }
 `;
 
+export const RoadAddressText = styled.span`
+  font-weight: 500;
+  color: #383b40;
+`;
+
 export const CategoryBox = styled.li`
   display: flex;
   margin-bottom: 20px;
@@ -71,13 +78,16 @@ export const CategoryBox = styled.li`
 
 export const SubjectBox = styled.div`
   width: 110px;
-  font-weight: 300;
+  font-weight: 500;
+  color: #383b40;
   @media (max-width: 800px) {
     font-size: 13px;
   }
 `;
 
 export const ContentBox = styled.div`
+  font-weight: 300;
+  color: #383b40;
   a {
     text-decoration: underline;
   }

@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import Style from './textBlock.style';
 
-const TextBlock = ({ text }: { text: string }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleShowMore = () => {
-    setExpanded(true);
-  };
+const TextBlock = ({
+  text,
+  expanded,
+  handleShowMore,
+}: {
+  text: string;
+  expanded: boolean;
+  handleShowMore: () => void;
+}) => {
   return (
     <>
       {expanded ? (
@@ -17,7 +20,7 @@ const TextBlock = ({ text }: { text: string }) => {
         <>
           {text.length > 30 ? (
             <Style.Container>
-              {text.slice(0, 70) + '...'}
+              <pre>{text.slice(0, 70) + '...'}</pre>
               <Style.ShowMoreButton
                 onClick={handleShowMore}
                 expanded={expanded}

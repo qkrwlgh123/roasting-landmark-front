@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const MobileMenuBox = styled.div`
   @media (min-width: 1000px) {
     display: none;
@@ -7,4 +8,15 @@ const MobileMenuBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export default { MobileMenuBox };
+
+const SearchIconBox = styled.div`
+  margin-right: 15px;
+`;
+
+const SearchComponent = styled.div`
+  position: fixed;
+  top: 10px;
+  right: 5px;
+`;
+
+export default { MobileMenuBox, SearchIconBox, SearchComponent };

@@ -31,7 +31,7 @@ const CafeShopReviewList = ({
     <Style.ReviewListContainer>
       <DescriptionContainer>
         <DescriptionSubjectBox>방문 후기&nbsp;</DescriptionSubjectBox>
-        <span>({participants})</span>
+        <Style.ParticipantsText>({participants})</Style.ParticipantsText>
       </DescriptionContainer>
       {reviewList?.length > 0 ? (
         reviewList?.map((reviewInfo: ReviewType) => (
@@ -42,7 +42,7 @@ const CafeShopReviewList = ({
           />
         ))
       ) : (
-        <span>후기가 없습니다</span>
+        <Style.NoReviewText>후기가 없습니다</Style.NoReviewText>
       )}
       {}
     </Style.ReviewListContainer>

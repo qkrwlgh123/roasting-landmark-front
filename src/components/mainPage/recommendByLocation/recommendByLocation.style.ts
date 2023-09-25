@@ -15,6 +15,9 @@ const RecommendContainer = styled.div`
   color: #ffffff;
   font-size: 35px;
   font-weight: 500;
+  @media (max-width: 700px) {
+    font-size: 23px;
+  }
 `;
 
 const FirstTextBox = styled.div`

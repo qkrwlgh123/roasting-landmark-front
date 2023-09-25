@@ -14,7 +14,10 @@ const CafeRateBox = styled.div`
   align-items: center;
   margin-bottom: 15px;
   span {
+    display: inline-block;
+    margin-bottom: 5px;
     font-size: 16px;
+    color: #383b40;
   }
   img {
     width: 22px;
@@ -30,7 +33,8 @@ const CafeTitleContainer = styled.div`
 
 const CafeName = styled.span`
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 500;
+  color: #383b40;
   @media (max-width: 800px) {
     font-size: 24px;
   }
@@ -50,19 +54,34 @@ const CafeShareIconBox = styled.div`
 
 const CafeKeywords = styled.div`
   display: flex;
-  margin: 5px 0 40px 0;
+  margin: -18px 0 40px 0;
+  color: #383b40;
+  font-weight: 500;
+  font-size: 16px;
   @media (max-width: 800px) {
     font-size: 13px;
   }
 `;
 
 const CafeDescriptionBox = styled.div`
+  color: #383b40;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: -20px;
+  padding-right: 10px;
+
+  pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow: auto;
+  }
+
   @media (max-width: 800px) {
     font-size: 13px;
   }
   pre {
     @media (max-width: 800px) {
-      white-space: normal;
+      white-space: pre-wrap;
     }
   }
 `;
@@ -81,6 +100,7 @@ const SubmitReviewButton = styled.button`
   font-size: 15px;
   border: 1px solid black;
   padding: 5px;
+  color: #383b40;
 `;
 
 export default {

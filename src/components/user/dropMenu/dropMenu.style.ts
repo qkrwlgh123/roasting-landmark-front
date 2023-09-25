@@ -15,6 +15,7 @@ const MenuContainer = styled.div`
   @media (max-width: 1000px) {
     right: 10px;
   }
+  color: #383b40;
 `;
 
 const MenuBox = styled.div`

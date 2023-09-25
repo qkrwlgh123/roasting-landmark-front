@@ -88,12 +88,12 @@ const CafeShopReview = ({
       ) : null}
       {/* 후기에 대한 답변이 없을시 작성 */}
       {isStartedWriteAnswer && (
-        <div>
+        <Style.AnswerInputsContainer>
           <Style.AnswerInput
             value={answerContent}
             onChange={handleInputAnswerContent}
           />
-          <button
+          <Style.AnswerSubmitButton
             onClick={() =>
               handlePostReviewAnswer({
                 reviewId: reviewInfo?.id,
@@ -102,8 +102,8 @@ const CafeShopReview = ({
             }
           >
             <span>등록</span>
-          </button>
-        </div>
+          </Style.AnswerSubmitButton>
+        </Style.AnswerInputsContainer>
       )}
     </>
   );

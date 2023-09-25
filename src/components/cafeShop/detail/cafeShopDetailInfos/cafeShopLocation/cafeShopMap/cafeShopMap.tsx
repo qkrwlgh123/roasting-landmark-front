@@ -5,6 +5,7 @@ import CafeShopDetailInfosLayout from '../../cafeShopDetailInfosLayout/cafeShopD
 import {
   ContentBox,
   ParcelAddressBox,
+  RoadAddressText,
 } from '../../cafeShopDetailInfosLayout/cafeShopDetailInfosLayout.style';
 
 const { kakao } = window;
@@ -43,7 +44,7 @@ const CafeShopMap = ({ detailInfo }: { detailInfo: CafeShopType }) => {
       <div id="map" style={{ width: '100%', height: '400px' }}></div>
       <Style.AddressContainer>
         <ContentBox>
-          <span>{detailInfo?.roadAddress}</span>
+          <RoadAddressText>{detailInfo?.roadAddress}</RoadAddressText>
           <ParcelAddressBox>
             <div>
               <span>지번</span>

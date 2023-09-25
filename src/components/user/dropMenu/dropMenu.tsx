@@ -68,7 +68,11 @@ const DropMenu = ({
         신규 카페 등록
       </Style.MobileMenuBox>
       <Style.MenuBox onClick={handleClickMyListMenu}>등록한 카페</Style.MenuBox>
-      <Style.MobileMenuBox>문의 남기기</Style.MobileMenuBox>
+      <Style.MobileMenuBox>
+        <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
+          문의 남기기
+        </a>
+      </Style.MobileMenuBox>
       <Style.MenuBox onClick={handleLogout}>로그아웃</Style.MenuBox>
     </Style.MenuContainer>
   );

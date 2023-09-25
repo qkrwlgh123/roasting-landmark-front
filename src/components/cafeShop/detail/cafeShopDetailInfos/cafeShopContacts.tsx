@@ -7,6 +7,7 @@ import {
   DescriptionContainer,
   DescriptionSubjectBox,
   ParcelAddressBox,
+  RoadAddressText,
   SubjectBox,
 } from './cafeShopDetailInfosLayout/cafeShopDetailInfosLayout.style';
 
@@ -22,7 +23,7 @@ const CafeShopContacts = ({ detailInfo }: { detailInfo: CafeShopType }) => {
             <span>주소</span>
           </SubjectBox>
           <ContentBox>
-            <span>{detailInfo?.roadAddress}</span>
+            <RoadAddressText>{detailInfo?.roadAddress}</RoadAddressText>
             <ParcelAddressBox>
               <div>
                 <span>지번</span>

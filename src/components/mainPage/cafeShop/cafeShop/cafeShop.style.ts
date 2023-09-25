@@ -31,6 +31,7 @@ const CafeTitleBox = styled.div`
   justify-content: space-between;
   align-items: center;
   span {
+    color: #383b40;
     font-size: 20px;
     font-weight: 500;
   }
@@ -39,6 +40,7 @@ const CafeTitleBox = styled.div`
 
 const CafeHashTagsBox = styled.div`
   span {
+    color: #383b40;
     font-size: 13px;
     font-weight: 300;
   }

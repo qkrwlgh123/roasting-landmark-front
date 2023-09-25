@@ -7,11 +7,18 @@ const FormContainer = styled.form`
 
 const TitleBox = styled.div`
   margin-bottom: 25px;
+  color: #383b40;
+  @media (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 const ShopNameText = styled.span`
   color: #c9612d;
   font-size: 30px;
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
 `;
 
 const RateBox = styled.div`
@@ -35,8 +42,11 @@ const FormInnerBox = styled.div`
     border-radius: 4px;
     padding: 15px;
     border: 1px solid #d8dadd;
+    color: #383b40;
+    font-weight: 300;
     &::placeholder {
       color: #adb2bb;
+      font-weight: 300;
     }
   }
   textarea {
@@ -47,8 +57,12 @@ const FormInnerBox = styled.div`
     }
   }
   label {
+    color: #383b40;
     font-size: 13px;
     margin-bottom: 10px;
+  }
+  @media (max-width: 800px) {
+    width: 100%;
   }
 `;
 

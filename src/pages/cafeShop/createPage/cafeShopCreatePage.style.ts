@@ -23,8 +23,12 @@ const FormInnerBox = styled.div`
     border-radius: 4px;
     padding: 15px;
     border: 1px solid #d8dadd;
+    color: #383b40;
+    font-weight: 300;
+    font-size: 13px;
     &::placeholder {
       color: #adb2bb;
+      font-weight: 300;
     }
   }
   textarea {
@@ -35,6 +39,8 @@ const FormInnerBox = styled.div`
     }
   }
   label {
+    color: #383b40;
+    font-weight: 500;
     font-size: 13px;
     margin-bottom: 10px;
   }
@@ -60,12 +66,15 @@ const AutoCompletedWordBox = styled.div`
   flex-direction: column;
   cursor: pointer;
   padding: 15px 250px 15px 20px;
-  font-size: 15px;
+  font-size: 13px;
   span {
     display: inline-block;
+    color: #383b40;
+    font-weight: 300;
   }
   span:first-child {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    font-weight: 500;
   }
   &:hover {
     background-color: #fdf6f4;
@@ -84,6 +93,9 @@ const HolidayCheckbox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #383b40;
+  font-weight: 300;
+  font-size: 13px;
 `;
 
 const ImagesTitleBox = styled.div`
@@ -93,6 +105,8 @@ const ImagesTitleBox = styled.div`
     font-size: 13px;
     display: inline-block;
     margin-bottom: 10px;
+    color: #383b40;
+    font-weight: 500;
   }
 
   span:nth-child(2) {
@@ -109,14 +123,18 @@ const ImageGuideTitle = styled.div`
   padding: 8px 15px;
   span {
     color: #adb2bb;
+    font-size: 13px;
+    font-weight: 300;
   }
   label {
     margin: 0;
     cursor: pointer;
     background-color: #e5e8ec;
     border-radius: 4px;
-    padding: 10px 15px;
+    padding: 5px 15px;
     color: #383b40;
+    font-weight: 300;
+    font-size: 12px;
   }
 `;
 
@@ -165,6 +183,8 @@ const MenuContainer = styled.div`
 const MenuTitlesBox = styled.div`
   display: flex;
   flex-direction: column;
+  color: #383b40;
+  font-weight: 500;
   span:nth-child(2) {
     color: #c9612d;
   }
@@ -177,6 +197,11 @@ const MenuInputContainer = styled.div`
   input {
     margin: 0 10px 0 5px;
     width: 50%;
+    &::placeholder {
+      color: #adb2bb;
+      font-weight: 300;
+      font-size: 13px;
+    }
   }
   button {
     margin-left: 10px;
