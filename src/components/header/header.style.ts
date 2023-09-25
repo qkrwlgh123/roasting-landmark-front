@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-const HeaderContainer = styled.nav`
+const HeaderContainer = styled.nav<{ isDown: boolean }>`
   position: fixed;
   left: 0;
   top: 0;
@@ -8,7 +8,7 @@ const HeaderContainer = styled.nav`
   display: flex;
   justify-content: center;
   height: 80px;
-  background-color: #ffffff;
+  background-color: ${(props) => (props.isDown ? '' : '#ffffff')};
 `;
 
 const HeaderContentsBox = styled.ul`
@@ -29,8 +29,8 @@ const LeftHeaderContentsBox = styled.div`
   align-items: center;
 `;
 
-const RightHeaderContentsBox = styled.div`
-  display: flex;
+const RightHeaderContentsBox = styled.div<{ isDown: boolean }>`
+  display: ${(props) => (props.isDown ? 'none' : 'flex')};
   align-items: center;
 `;
 
@@ -39,17 +39,17 @@ const ContentBox = styled.li`
   font-weight: 500;
 `;
 
-const LogoBox = styled(ContentBox)`
+const LogoBox = styled(ContentBox)<{ isDown: boolean }>`
   width: 170px;
   height: 56px;
   margin-right: 30px;
   img {
-    width: 100%;
-    height: 100%;
+    width: ${(props) => (props.isDown ? '0%' : '100%')};
+    height: ${(props) => (props.isDown ? '0%' : '100%')};
   }
 `;
 
-const SearchComponentBox = styled(ContentBox)`
+export const SearchComponentBox = styled(ContentBox)`
   width: 400px;
   height: 48px;
   display: flex;
@@ -61,11 +61,13 @@ const SearchComponentBox = styled(ContentBox)`
   }
 `;
 
-const SearchCafeInput = styled.input`
+export const SearchCafeInput = styled.input`
   background-color: #f4f6f8;
   width: 90%;
   height: 100%;
   border-radius: 24px;
+  color: #383b40;
+  font-weight: 300;
   &::placeholder {
     color: #adb2bb;
     font-weight: 300;
@@ -76,8 +78,8 @@ const SearchCafeInput = styled.input`
 
 const ButtonBox = styled(ContentBox)`
   color: #383b40;
-  border: 2px solid #adb2bb;
-  padding: 10px;
+  border: 1px solid #adb2bb;
+  padding: 7px 20px;
   border-radius: 5px;
   margin-left: 10px;
   @media (max-width: 1000px) {

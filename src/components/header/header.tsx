@@ -4,7 +4,7 @@ import { routes } from '../../routes';
 import { isLoggedInAtom } from '../../recoil/authAtoms';
 import { useRecoilValue } from 'recoil';
 import Profile from '../user/profile/profile';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from '../../assets/images/home_logo.png';
 import SearchIcon from '../../assets/images/btn_search.png';
 import MobileDropMenu from '../user/mobileDropMenu/mobileDropMenu';
@@ -19,6 +19,8 @@ const Header = ({
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+
   const [searchKeyword, setSearchKeyword] = useState('');
 
   const handleInputKeyword = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,12 +34,22 @@ const Header = ({
     }
     navigate(`/search/${searchKeyword}`);
   };
+
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', updateScroll);
+
+    return () => window.removeEventListener('scroll', updateScroll);
+  });
   return (
-    <Style.HeaderContainer>
+    <Style.HeaderContainer isDown={scrollPosition > 80}>
       <Style.HeaderContentsBox>
         <Style.LeftHeaderContentsBox>
           <Link to={routes.mainPage}>
-            <Style.LogoBox>
+            <Style.LogoBox isDown={scrollPosition > 80}>
               <img src={Logo} alt="로고_이미지" />
             </Style.LogoBox>
           </Link>
@@ -54,7 +66,7 @@ const Header = ({
             </div>
           </Style.SearchComponentBox>
         </Style.LeftHeaderContentsBox>
-        <Style.RightHeaderContentsBox>
+        <Style.RightHeaderContentsBox isDown={scrollPosition > 80}>
           <Style.ButtonBox>
             <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
               문의 남기기
