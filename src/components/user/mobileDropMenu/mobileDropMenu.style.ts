@@ -9,14 +9,44 @@ const MobileMenuBox = styled.div`
   align-items: center;
 `;
 
-const SearchIconBox = styled.div`
+export const SearchIconBox = styled.div`
   margin-right: 15px;
+  @media (min-width: 1000px) {
+    display: none;
+  }
 `;
 
-const SearchComponent = styled.div`
-  position: fixed;
-  top: 10px;
-  right: 5px;
+export const MobileSearchComponentBox = styled.div`
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  width: 300px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+  background-color: #f4f6f8;
+  border-radius: 12px;
 `;
 
-export default { MobileMenuBox, SearchIconBox, SearchComponent };
+export const MobileSearchCafeInput = styled.input`
+  background-color: #f4f6f8;
+  width: 90%;
+  height: 100%;
+  border-radius: 24px;
+  color: #383b40;
+  font-weight: 300;
+  &::placeholder {
+    color: #adb2bb;
+    font-weight: 300;
+  }
+  border: none;
+  padding: 15px 25px;
+`;
+
+export default {
+  MobileMenuBox,
+  SearchIconBox,
+  MobileSearchComponentBox,
+  MobileSearchCafeInput,
+};

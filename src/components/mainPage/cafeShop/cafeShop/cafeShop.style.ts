@@ -8,6 +8,10 @@ const CafeInfoBox = styled.div`
   border-radius: 12px;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
   line-height: 1;
+  &:hover {
+    scale: 1.1;
+  }
+  transition: scale 0.2s ease;
 `;
 
 const CafeImageBox = styled.div`

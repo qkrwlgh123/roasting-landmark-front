@@ -49,7 +49,7 @@ const LogoBox = styled(ContentBox)<{ isDown: boolean }>`
   }
 `;
 
-export const SearchComponentBox = styled(ContentBox)`
+const SearchComponentBox = styled(ContentBox)`
   width: 400px;
   height: 48px;
   display: flex;
@@ -61,7 +61,7 @@ export const SearchComponentBox = styled(ContentBox)`
   }
 `;
 
-export const SearchCafeInput = styled.input`
+const SearchCafeInput = styled.input`
   background-color: #f4f6f8;
   width: 90%;
   height: 100%;
@@ -82,6 +82,10 @@ const ButtonBox = styled(ContentBox)`
   padding: 7px 20px;
   border-radius: 5px;
   margin-left: 10px;
+  &:hover {
+    background-color: #c9612d;
+    color: #ffffff;
+  }
   @media (max-width: 1000px) {
     display: none;
   }
