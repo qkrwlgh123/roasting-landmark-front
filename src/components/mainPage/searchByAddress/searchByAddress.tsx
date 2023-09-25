@@ -5,6 +5,7 @@ import {
   SubmitButtonContainer,
 } from '../../../pages/cafeShop/createPage/cafeShopCreatePage.style';
 import { getCurrentRegion } from '../../../utils/shared/api/geoLocation';
+import CloseIcon from '../../../assets/images/close_icon.png';
 
 const { kakao } = window;
 
@@ -126,6 +127,9 @@ const SearchByAddress = ({
   return (
     <Style.ModalBackground>
       <Style.SearchAddressContainer>
+        <Style.CloseIconBox onClick={handleChangeSearchingState}>
+          <img src={CloseIcon} alt="close_icon" />
+        </Style.CloseIconBox>
         <Style.AddressInputBox>
           <Style.AddressInput
             type="text"
@@ -134,7 +138,6 @@ const SearchByAddress = ({
             onChange={handleChangeSearchKeyword}
           />
         </Style.AddressInputBox>
-
         {searchedAddressesList.length > 0 && (
           <Style.AutoCompletedWordsContainer>
             {searchedAddressesList.map((address: any) => (
@@ -151,7 +154,6 @@ const SearchByAddress = ({
           <span>※지도를 드래그하거나 클릭하여 위치를 설정하세요.</span>
         </Style.GuideTitleBox>
         <div id="map" style={{ width: '100%', height: '400px' }}></div>
-
         <Style.SubmitButtonBox>
           <SubmitButtonContainer onClick={handleClickSubmit}>
             <SubmitButton>선택한 위치로 설정</SubmitButton>

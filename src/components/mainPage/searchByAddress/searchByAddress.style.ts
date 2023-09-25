@@ -21,6 +21,8 @@ const AddressInput = styled.input`
   border-radius: 4px;
   padding: 15px;
   border: 1px solid #d8dadd;
+  color: #383b40;
+  font-weight: 300;
   &::placeholder {
     color: #adb2bb;
   }
@@ -50,6 +52,13 @@ const SearchAddressContainer = styled.div`
   border-radius: 8px;
 `;
 
+const CloseIconBox = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  cursor: pointer;
+`;
+
 const AutoCompletedWordsContainer = styled.div`
   position: absolute;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -72,6 +81,8 @@ const AutoCompletedWordBox = styled.div`
   font-size: 15px;
   span {
     display: inline-block;
+    color: #383b40;
+    font-weight: 500;
   }
   span:first-child {
     margin-bottom: 10px;
@@ -83,6 +94,8 @@ const AutoCompletedWordBox = styled.div`
 
 const GuideTitleBox = styled.div`
   margin: 60px 0 15px 0;
+  color: #c9612d;
+  font-weight: 500;
 `;
 
 const SubmitButtonBox = styled.div`
@@ -94,6 +107,7 @@ export default {
   AddressInputBox,
   AddressInput,
   SearchAddressContainer,
+  CloseIconBox,
   AutoCompletedWordsContainer,
   AutoCompletedWordBox,
   GuideTitleBox,
