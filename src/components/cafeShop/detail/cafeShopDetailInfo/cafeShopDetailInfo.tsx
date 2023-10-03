@@ -22,6 +22,7 @@ const CafeShopDetailInfo = ({
       <CafeShopMenu detailInfo={detailInfo} />
       <CafeShopReviewList
         shopId={shopId}
+        detailInfo={detailInfo}
         participants={participants}
         isCreator={detailInfo?.isCreator}
       />

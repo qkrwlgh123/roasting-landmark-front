@@ -5,7 +5,8 @@ import {
   SubmitButtonContainer,
 } from '../../../pages/cafeShop/createPage/cafeShopCreatePage.style';
 import { getCurrentRegion } from '../../../utils/shared/api/geoLocation';
-import CloseIcon from '../../../assets/images/close_icon.png';
+import CloseIcon from '../../commonModal/closeIcon/closeIcon';
+import CommonModal from '../../commonModal/commonModal';
 
 const { kakao } = window;
 
@@ -125,42 +126,38 @@ const SearchByAddress = ({
   }, [searchedLocation]);
 
   return (
-    <Style.ModalBackground>
-      <Style.SearchAddressContainer>
-        <Style.CloseIconBox onClick={handleChangeSearchingState}>
-          <img src={CloseIcon} alt="close_icon" />
-        </Style.CloseIconBox>
-        <Style.AddressInputBox>
-          <Style.AddressInput
-            type="text"
-            placeholder="주소를 입력하세요."
-            value={searchAddressKeyword}
-            onChange={handleChangeSearchKeyword}
-          />
-        </Style.AddressInputBox>
-        {searchedAddressesList.length > 0 && (
-          <Style.AutoCompletedWordsContainer>
-            {searchedAddressesList.map((address: any) => (
-              <Style.AutoCompletedWordBox
-                key={address.address_name}
-                onClick={() => handleClickAddressName(address.y, address.x)}
-              >
-                <span>{address.address_name}</span>
-              </Style.AutoCompletedWordBox>
-            ))}
-          </Style.AutoCompletedWordsContainer>
-        )}
-        <Style.GuideTitleBox>
-          <span>※지도를 드래그하거나 클릭하여 위치를 설정하세요.</span>
-        </Style.GuideTitleBox>
-        <div id="map" style={{ width: '100%', height: '400px' }}></div>
-        <Style.SubmitButtonBox>
-          <SubmitButtonContainer onClick={handleClickSubmit}>
-            <SubmitButton>선택한 위치로 설정</SubmitButton>
-          </SubmitButtonContainer>
-        </Style.SubmitButtonBox>
-      </Style.SearchAddressContainer>
-    </Style.ModalBackground>
+    <CommonModal>
+      <CloseIcon onClickFunc={handleChangeSearchingState} />
+      <Style.AddressInputBox>
+        <Style.AddressInput
+          type="text"
+          placeholder="주소를 입력하세요."
+          value={searchAddressKeyword}
+          onChange={handleChangeSearchKeyword}
+        />
+      </Style.AddressInputBox>
+      {searchedAddressesList.length > 0 && (
+        <Style.AutoCompletedWordsContainer>
+          {searchedAddressesList.map((address: any) => (
+            <Style.AutoCompletedWordBox
+              key={address.address_name}
+              onClick={() => handleClickAddressName(address.y, address.x)}
+            >
+              <span>{address.address_name}</span>
+            </Style.AutoCompletedWordBox>
+          ))}
+        </Style.AutoCompletedWordsContainer>
+      )}
+      <Style.GuideTitleBox>
+        <span>※지도를 드래그하거나 클릭하여 위치를 설정하세요.</span>
+      </Style.GuideTitleBox>
+      <div id="map" style={{ width: '100%', height: '400px' }}></div>
+      <Style.SubmitButtonBox>
+        <SubmitButtonContainer onClick={handleClickSubmit}>
+          <SubmitButton>선택한 위치로 설정</SubmitButton>
+        </SubmitButtonContainer>
+      </Style.SubmitButtonBox>
+    </CommonModal>
   );
 };
 

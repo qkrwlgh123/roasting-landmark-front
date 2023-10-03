@@ -6,6 +6,7 @@ import {
   getRecommendByLocationShops,
 } from '../../../../utils/shared/api/cafeShopApis';
 import { CafeShopType } from '../../../../types/cafeShop';
+import NotResult from '../../../cafeShop/noResult/notResult';
 
 const CafeShopList = ({
   currentKeywords,
@@ -45,11 +46,17 @@ const CafeShopList = ({
   }, [currentKeywords, currentLocation, isLocationSelected]);
 
   return (
-    <Style.ListBox>
-      {shopList?.map((shop: CafeShopType) => (
-        <CafeShop key={shop.id} shopInfos={shop} />
-      ))}
-    </Style.ListBox>
+    <>
+      {shopList?.length > 0 ? (
+        <Style.ListBox>
+          {shopList?.map((shop: CafeShopType) => (
+            <CafeShop key={shop.id} shopInfos={shop} />
+          ))}
+        </Style.ListBox>
+      ) : (
+        <NotResult message="해당 지역 또는 키워드에 일치하는 카페가 없습니다" />
+      )}
+    </>
   );
 };
 

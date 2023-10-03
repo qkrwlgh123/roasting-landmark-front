@@ -3,6 +3,7 @@ import {
   authInstance,
   defaultInstance,
   formDataInstance,
+  getAuthorizationHeader,
 } from './axiosInstance';
 
 // 모든 카페 목록 조회
@@ -18,7 +19,9 @@ export const getAllShops = async () => {
 // 내가 등록한 카페 목록 조회
 export const getMyShops = async () => {
   try {
-    const { data } = await authInstance.get(`/shop/myList`);
+    const { data } = await authInstance.get(`/shop/myList`, {
+      headers: { Authorization: getAuthorizationHeader() },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -42,7 +45,9 @@ export const getShopDetail = async (id: number) => {
 // 신규 카페 정보 등록
 export const postCreateShop = async (data: FormData) => {
   try {
-    const shop = await formDataInstance.post('shop/create', data);
+    const shop = await formDataInstance.post('shop/create', data, {
+      headers: { Authorization: getAuthorizationHeader() },
+    });
     return shop.data.id;
   } catch (error) {
     console.log(error);

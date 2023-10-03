@@ -9,6 +9,7 @@ const HeaderContainer = styled.nav<{ isDown: boolean }>`
   justify-content: center;
   height: 80px;
   background-color: ${(props) => (props.isDown ? '' : '#ffffff')};
+  z-index: 1;
 `;
 
 const HeaderContentsBox = styled.ul`

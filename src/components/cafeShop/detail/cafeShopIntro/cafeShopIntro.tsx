@@ -24,6 +24,7 @@ const CafeShopIntro = ({
   const isLoggedIn = useRecoilValue(isLoggedInAtom);
 
   const [isShareToOthersModal, setIsShareToOthersModal] = useState(false);
+
   const handleSwitchShareModel = () => {
     setIsShareToOthersModal((prev) => !prev);
   };
@@ -53,17 +54,6 @@ const CafeShopIntro = ({
         <Style.CafeDescriptionBox>
           <pre>{introInfo?.description}</pre>
         </Style.CafeDescriptionBox>
-        <div>
-          {isLoggedIn ? (
-            <Link to={routes.writeReview} state={introInfo}>
-              <Style.SubmitReviewButton>후기 작성</Style.SubmitReviewButton>
-            </Link>
-          ) : (
-            <Style.GuideLoginPage>
-              <span>로그인 후, 후기를 작성해보세요.</span>
-            </Style.GuideLoginPage>
-          )}
-        </div>
       </div>
     </Style.CafeInfoContainer>
   );

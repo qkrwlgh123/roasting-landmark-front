@@ -1,11 +1,17 @@
 import { PostReviewAnswerType, PostReviewType } from '../../../types/review';
 import { FieldValues } from 'react-hook-form';
-import { authInstance, defaultInstance } from './axiosInstance';
+import {
+  authInstance,
+  defaultInstance,
+  getAuthorizationHeader,
+} from './axiosInstance';
 
 // 리뷰 등록
 export const postReview = async (postInfo: PostReviewType) => {
   try {
-    const response = await authInstance.post('review/submit', postInfo);
+    const response = await authInstance.post('review/submit', postInfo, {
+      headers: { Authorization: getAuthorizationHeader() },
+    });
 
     return response.status;
   } catch (err) {

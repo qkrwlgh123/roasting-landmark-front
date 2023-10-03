@@ -35,6 +35,15 @@ const Header = ({
     navigate(`/search/${searchKeyword}`);
   };
 
+  // 엔터키 누를 시 검색 동작
+  const handleActiveEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleStartSearch();
+      handleBlur();
+    }
+  };
+
+  //  스크롤 위치에 따른 헤더바 UI 변경
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
@@ -58,6 +67,7 @@ const Header = ({
               placeholder="카페 또는 지역명으로 검색해보세요."
               value={searchKeyword}
               onChange={handleInputKeyword}
+              onKeyDown={(e) => handleActiveEnterKey(e)}
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
@@ -67,11 +77,9 @@ const Header = ({
           </Style.SearchComponentBox>
         </Style.LeftHeaderContentsBox>
         <Style.RightHeaderContentsBox isDown={scrollPosition > 80}>
-          <Style.ButtonBox>
-            <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
-              문의 남기기
-            </a>
-          </Style.ButtonBox>
+          <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
+            <Style.ButtonBox>문의 남기기</Style.ButtonBox>
+          </a>
           {isLoggedIn && (
             <Link to={routes.selectKeywords}>
               <Style.ButtonBox>신규 카페 등록</Style.ButtonBox>

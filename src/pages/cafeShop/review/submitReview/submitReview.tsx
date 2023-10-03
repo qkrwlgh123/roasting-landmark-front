@@ -13,14 +13,13 @@ import {
 const SubmitReview = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { shopId, shopName }: { shopId: number; shopName: string } =
-    location.state;
-  const { username, userId } = useRecoilValue<UserInfoType>(userInfoAtom);
+  const { id, shopName }: { id: number; shopName: string } = location.state;
 
-  const { register, control, watch, setValue, handleSubmit } = useForm();
+  const { username } = useRecoilValue<UserInfoType>(userInfoAtom);
+
+  const { register, control, handleSubmit } = useForm();
 
   const onValid = async (data: FieldValues) => {
-    console.log(data);
     if (!data.content) {
       alert('후기 내용을 입력해주세요.');
       return;
@@ -28,12 +27,12 @@ const SubmitReview = () => {
     const postInfo = {
       content: data.content,
       rate: Number(data.rate),
-      shopId,
+      shopId: id,
     };
     const postResponse = await postReview(postInfo);
     if (postResponse === 201) {
       alert('등록되었습니다.');
-      navigate(`/cafeShopDetail/${shopId}`);
+      navigate(`/cafeShopDetail/${id}`);
     }
   };
 
