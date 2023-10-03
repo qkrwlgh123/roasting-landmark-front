@@ -6,6 +6,7 @@ const ProgressBarContainer = styled.div`
   align-items: center;
   width: 50%;
   margin: 20px auto 0 auto;
+  color: #383b40;
 `;
 
 const StepContainer = styled.div`
@@ -16,12 +17,12 @@ const StepContainer = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: -50%;
     transform: translateY(-50%);
     height: 2px;
     width: 100%;
-    background-color: #333;
+    background-color: #383b40;
     z-index: -1;
   }
 
@@ -34,7 +35,7 @@ const StepNumber = styled.span<{ active: boolean }>`
   display: block;
   width: 30px;
   height: 30px;
-  border: 2px solid #333;
+  border: 2px solid #383b40;
   border-radius: 50%;
   margin: 0 auto 10px;
   line-height: 30px;
@@ -43,7 +44,7 @@ const StepNumber = styled.span<{ active: boolean }>`
   ${(props) =>
     props.active &&
     `
-    background-color: #333;
+    background-color: #383b40;
     color: white;
   `}
 `;
@@ -51,6 +52,7 @@ const StepNumber = styled.span<{ active: boolean }>`
 const StepLabel = styled.p`
   margin: 0;
   font-size: 14px;
+  color: #383b40;
 `;
 
 export default { ProgressBarContainer, StepContainer, StepNumber, StepLabel };

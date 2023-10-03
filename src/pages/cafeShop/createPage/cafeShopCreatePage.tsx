@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { postCreateShop } from '../../../utils/shared/api/cafeShopApis';
 import Style from './cafeShopCreatePage.style';
 import { FieldValues, useForm } from 'react-hook-form';
@@ -105,7 +105,18 @@ const CafeShopCreatePage = () => {
     }
     setMenuList((prev: CafeShopMenuType[]) => [...prev, currentTypingMenu]);
     setCurrentTypingMenu({ food: '', price: '' });
+    foodInputRef.current.focus();
   };
+
+  // 엔터키 누를 시 입력 완료 동작
+  const handleActiveMenuEnterKey = (
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (e.key === 'Enter') handleClickAddMenu();
+  };
+
+  // 메뉴 입력 완료 시, 상품으로 focus 이동
+  const foodInputRef = useRef<any>();
 
   // 메뉴 삭제 함수
   const handleDeleteMenu = (menu: string) => {
@@ -198,7 +209,12 @@ const CafeShopCreatePage = () => {
   return (
     <>
       <StepProgress step={2} />
-      <Style.FormContainer onSubmit={handleSubmit(onValid)}>
+      <Style.FormContainer
+        onSubmit={handleSubmit(onValid)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') e.preventDefault();
+        }}
+      >
         <Style.FormInnerBox>
           <label htmlFor="shopName">카페명</label>
           <input
@@ -318,7 +334,9 @@ const CafeShopCreatePage = () => {
           <Style.MenuContainer>
             <Style.MenuTitlesBox>
               <span>메뉴</span>
-              <span>※메뉴 입력후 우측에 + 버튼을 클릭하세요.</span>
+              <span>
+                ※메뉴 입력후 우측에 + 버튼을 클릭하거나 Enter를 누르세요.
+              </span>
             </Style.MenuTitlesBox>
             <Style.MenuInputContainer>
               <input
@@ -326,11 +344,13 @@ const CafeShopCreatePage = () => {
                 value={currentTypingMenu?.food}
                 onChange={handleTypingFood}
                 placeholder="상품"
+                ref={foodInputRef}
               />
               <input
                 type="number"
                 value={currentTypingMenu?.price}
                 onChange={handleTypingPrice}
+                onKeyDown={(e) => handleActiveMenuEnterKey(e)}
                 placeholder="가격"
               />
               <button type="button" onClick={handleClickAddMenu}>

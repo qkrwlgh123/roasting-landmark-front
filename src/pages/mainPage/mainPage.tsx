@@ -7,8 +7,8 @@ import { defaultInstance } from '../../utils/shared/api/axiosInstance';
 import { useRecoilState } from 'recoil';
 import { isLoggedInAtom, userInfoAtom } from '../../recoil/authAtoms';
 import { UserInfoType } from '../../types/user';
-import { KEYWORDS_LIST } from '../../utils/shared/datas';
 import Style from './mainPage.style';
+import Keywords from '../../components/mainPage/keywords/keywords';
 
 const MainPage = () => {
   const [shopList, setShopList] = useState<CafeShopType[]>([]);
@@ -73,7 +73,6 @@ const MainPage = () => {
     }
   }, []);
 
-  console.log(isLocationSelected, currentLocation);
   return (
     <>
       <RecommendByLocation
@@ -84,24 +83,10 @@ const MainPage = () => {
         handleChangeLocationSelected={handleChangeLocationSelected}
       />
 
-      <Style.KeywordsListLayout>
-        <Style.KeywordsBox>
-          <Style.Keyword
-            isClicked={currentKeywords.length === 0}
-            onClick={() => handleChangeCurrentKeywords('전체')}
-          >
-            전체
-          </Style.Keyword>
-          {KEYWORDS_LIST.map((keyword) => (
-            <Style.Keyword
-              isClicked={currentKeywords.some((item) => item === keyword)}
-              onClick={() => handleChangeCurrentKeywords(keyword)}
-            >
-              {keyword}
-            </Style.Keyword>
-          ))}
-        </Style.KeywordsBox>
-      </Style.KeywordsListLayout>
+      <Keywords
+        currentKeywords={currentKeywords}
+        handleChangeCurrentKeywords={handleChangeCurrentKeywords}
+      />
 
       <CafeListLayout>
         <CafeShopList

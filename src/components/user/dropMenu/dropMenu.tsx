@@ -46,6 +46,7 @@ const DropMenu = ({
   useEffect(() => {
     const handleOutsideClose = (e: MouseEvent) => {
       // useRef current에 담긴 엘리먼트 바깥을 클릭 시 드롭메뉴 닫힘
+
       if (
         isClickProfile &&
         e.target instanceof Node &&
@@ -53,6 +54,7 @@ const DropMenu = ({
         e.target instanceof HTMLElement && // HTMLElement일 때만 tagName 속성 사용
         e.target.tagName !== 'IMG'
       ) {
+        console.log('d');
         handleClickProfile();
       }
     };
@@ -68,11 +70,9 @@ const DropMenu = ({
         신규 카페 등록
       </Style.MobileMenuBox>
       <Style.MenuBox onClick={handleClickMyListMenu}>등록한 카페</Style.MenuBox>
-      <Style.MobileMenuBox>
-        <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
-          문의 남기기
-        </a>
-      </Style.MobileMenuBox>
+      <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
+        <Style.MobileMenuBox>문의 남기기</Style.MobileMenuBox>
+      </a>
       <Style.MenuBox onClick={handleLogout}>로그아웃</Style.MenuBox>
     </Style.MenuContainer>
   );

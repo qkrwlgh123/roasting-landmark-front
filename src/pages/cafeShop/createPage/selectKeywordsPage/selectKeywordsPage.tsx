@@ -47,15 +47,23 @@ const SelectKeywordsPage = () => {
           <span>최대 3개까지 선택 가능합니다.</span>
         </Style.TitleBox>
         <Style.KeywordsList>
-          {KEYWORDS_LIST.map((keyword, index) => (
+          {KEYWORDS_LIST.filter((_, idx) => idx > 0).map((keyword, index) => (
             <Style.Keyword
-              key={keyword}
+              key={keyword.keyword}
               isPageVisible={isPageVisible}
               animationDelay={index * 0.1}
-              isClicked={keywordsList.some((item) => item === keyword)}
-              onClick={() => handleClickKeyword(keyword)}
+              isClicked={keywordsList.some((item) => item === keyword.keyword)}
+              onClick={() => handleClickKeyword(keyword.keyword)}
             >
-              {keyword}
+              <img
+                src={
+                  keywordsList.some((item) => item === keyword.keyword)
+                    ? keyword.active
+                    : keyword.inactive
+                }
+                alt="keyword_icon"
+              />
+              <span>{keyword.keyword}</span>
             </Style.Keyword>
           ))}
         </Style.KeywordsList>

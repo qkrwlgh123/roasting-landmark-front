@@ -36,11 +36,9 @@ const MenuList = ({
         <Style.MenuBox>로그인</Style.MenuBox>
       </Link>
 
-      <Style.MenuBox>
-        <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
-          문의 남기기
-        </a>
-      </Style.MenuBox>
+      <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
+        <Style.MenuBox>문의 남기기</Style.MenuBox>
+      </a>
     </Style.MenuContainer>
   );
 };
