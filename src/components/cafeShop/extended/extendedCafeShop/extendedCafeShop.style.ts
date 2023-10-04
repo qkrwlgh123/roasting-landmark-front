@@ -20,13 +20,13 @@ const RepresentImageBox = styled.div`
   cursor: pointer;
   @media (max-width: 720px) {
     width: 100%;
-    max-height: 30%;
+    max-height: 100%;
     margin: 0;
   }
   img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
   }
 `;
 

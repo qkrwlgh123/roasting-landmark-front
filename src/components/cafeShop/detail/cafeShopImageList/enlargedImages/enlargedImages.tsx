@@ -4,6 +4,11 @@ import CommonModal from '../../../../commonModal/commonModal';
 import Style from './enlargedImages.style';
 import CloseIcon from '../../../../commonModal/closeIcon/closeIcon';
 import { Children, Dispatch, SetStateAction } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 const EnlargedImages = ({
   images,
@@ -23,40 +28,47 @@ const EnlargedImages = ({
   ));
 
   return (
-    <CommonModal>
-      <CloseIcon onClickFunc={handleClickImage} />
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span onClick={() => setCurrentImageindex((prev) => prev - 1)}>
-          prev
-        </span>
-        <Style.ImagesListContainer>
-          <Carousel
-            showStatus={false}
-            showIndicators={false}
-            showThumbs={false}
-            transitionTime={200}
-            showArrows={false}
-            selectedItem={currentImageIndex}
-            onChange={(index) => setCurrentImageindex(index)}
+    <Style.ModalBackground>
+      <Style.ContentsContainer>
+        <CloseIcon onClickFunc={handleClickImage} isDark={true} />
+
+        <Style.InnerContainer>
+          <Style.IconBox
+            onClick={() => setCurrentImageindex((prev) => prev - 1)}
           >
-            {renderSlides}
-          </Carousel>
-        </Style.ImagesListContainer>
-        <span onClick={() => setCurrentImageindex((prev) => prev + 1)}>
-          after
-        </span>
-      </div>
-      <Style.ThumbsContainer>
-        {images.map((image, index) => (
-          <Style.ThumbBox
-            isSelected={currentImageIndex === index}
-            onClick={() => setCurrentImageindex(index)}
+            <FontAwesomeIcon icon={faChevronLeft} size="3x" />
+          </Style.IconBox>
+          <Style.ImagesListContainer>
+            <Carousel
+              showStatus={false}
+              showIndicators={false}
+              showThumbs={false}
+              transitionTime={200}
+              showArrows={false}
+              selectedItem={currentImageIndex}
+              onChange={(index) => setCurrentImageindex(index)}
+            >
+              {renderSlides}
+            </Carousel>
+          </Style.ImagesListContainer>
+          <Style.IconBox
+            onClick={() => setCurrentImageindex((prev) => prev + 1)}
           >
-            <img src={image} alt="thumb_image" />
-          </Style.ThumbBox>
-        ))}
-      </Style.ThumbsContainer>
-    </CommonModal>
+            <FontAwesomeIcon icon={faChevronRight} size="3x" />
+          </Style.IconBox>
+        </Style.InnerContainer>
+        <Style.ThumbsContainer>
+          {images.map((image, index) => (
+            <Style.ThumbBox
+              isSelected={currentImageIndex === index}
+              onClick={() => setCurrentImageindex(index)}
+            >
+              <img src={image} alt="thumb_image" />
+            </Style.ThumbBox>
+          ))}
+        </Style.ThumbsContainer>
+      </Style.ContentsContainer>
+    </Style.ModalBackground>
   );
 };
 

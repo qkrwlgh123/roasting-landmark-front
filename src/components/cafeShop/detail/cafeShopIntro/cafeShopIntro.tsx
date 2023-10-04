@@ -30,7 +30,12 @@ const CafeShopIntro = ({
   };
   return (
     <Style.CafeInfoContainer>
-      {isShareToOthersModal && <ShareToOthers />}
+      {isShareToOthersModal && (
+        <ShareToOthers
+          introInfo={introInfo}
+          handleSwitchShareModel={handleSwitchShareModel}
+        />
+      )}
       <div>
         <Style.CafeRateBox>
           <RateStars rate={introInfo?.rate} />
