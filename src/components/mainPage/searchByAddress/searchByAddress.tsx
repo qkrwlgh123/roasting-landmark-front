@@ -6,6 +6,7 @@ import {
 } from '../../../pages/cafeShop/createPage/cafeShopCreatePage.style';
 import { getCurrentRegion } from '../../../utils/shared/api/geoLocation';
 import CloseIcon from '../../commonModal/closeIcon/closeIcon';
+import LocationIcon from '../../../assets/images/location.png';
 import CommonModal from '../../commonModal/commonModal';
 
 const { kakao } = window;
@@ -98,6 +99,17 @@ const SearchByAddress = ({
     // 지도 생성 및 객체 리턴
     const map = new kakao.maps.Map(container, options);
 
+    // 마커 이미지 생성
+    const imageSrc = LocationIcon,
+      imageSize = new kakao.maps.Size(54, 59),
+      imageOption = { offset: new kakao.maps.Point(26, 61) };
+
+    const markerImage = new kakao.maps.MarkerImage(
+      imageSrc,
+      imageSize,
+      imageOption
+    );
+
     // 마커가 표시될 위치
     const markerPosition = new kakao.maps.LatLng(
       searchedLocation?.latitude,
@@ -107,6 +119,7 @@ const SearchByAddress = ({
     // 마커를 생성
     const marker = new kakao.maps.Marker({
       position: markerPosition,
+      image: markerImage,
     });
 
     // 마커가 지도 위에 표시
