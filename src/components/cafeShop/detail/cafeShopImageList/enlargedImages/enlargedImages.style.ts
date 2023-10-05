@@ -17,9 +17,9 @@ const ContentsContainer = styled.div`
   position: absolute;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.8);
-  width: 50%;
+  width: 80%;
   @media (max-width: 1200px) {
-    width: 90%;
+    width: 95%;
   }
 
   /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */

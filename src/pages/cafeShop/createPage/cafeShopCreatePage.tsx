@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { postCreateShop } from '../../../utils/shared/api/cafeShopApis';
+import {
+  handleImagesCompress,
+  postCreateShop,
+} from '../../../utils/shared/api/cafeShopApis';
 import Style from './cafeShopCreatePage.style';
 import { FieldValues, useForm } from 'react-hook-form';
 import { searchPlaces } from '../../../utils/kakaoApi/searchPlace';
@@ -13,6 +16,8 @@ import StepProgress from '../../../components/cafeShop/create/stepProgress/stepP
 import Menu from '../../../components/cafeShop/menu/menu/menu';
 import MenuList from '../../../components/cafeShop/menu/menuList/menuList';
 import { routes } from '../../../routes';
+import LoadingLayout from '../../../components/layout/loadingLayout/loadingLayout';
+import LoadingSpinner from '../../../utils/shared/loadingSpinner/loadingSpinner';
 
 const WEEK_DAY_LIST = [
   { order: 1, day: '월' },
@@ -28,6 +33,8 @@ const CafeShopCreatePage = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
+
+  const [isLoading, setIsLoading] = useState(false);
   // 키워드 페이지에서 받아온 키워드 리스트
   const keywordList = location.state;
 
@@ -57,7 +64,6 @@ const CafeShopCreatePage = () => {
     { day: string; order: number }[]
   >([]);
 
-  console.log(keywordList);
   const handleChangeHolidayList = (e: React.ChangeEvent<HTMLInputElement>) => {
     let dayList = [...holidayList];
     if (e.target.checked) {
@@ -181,12 +187,20 @@ const CafeShopCreatePage = () => {
       parcelAddress: selectedShopInfo!.address_name,
       telNumber: selectedShopInfo!.phone,
     };
+
     const formData = new FormData();
-    uploadImagesList.forEach((image: File) => {
+    setIsLoading(true);
+
+    const compressedUploadImagesList = await handleImagesCompress(
+      uploadImagesList
+    );
+
+    for (const image of compressedUploadImagesList!) {
       formData.append('image', image);
-    });
+    }
     formData.append('data', JSON.stringify(postInfo));
     const shopId = await postCreateShop(formData);
+    setIsLoading(false);
     navigate(routes.createComplete, { state: shopId });
   };
 
@@ -208,11 +222,20 @@ const CafeShopCreatePage = () => {
 
   return (
     <>
+      {isLoading && (
+        <LoadingLayout>
+          <LoadingSpinner />
+        </LoadingLayout>
+      )}
       <StepProgress step={2} />
       <Style.FormContainer
         onSubmit={handleSubmit(onValid)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') e.preventDefault();
+        onKeyDown={(e: React.KeyboardEvent<HTMLFormElement>) => {
+          if (
+            e.key === 'Enter' &&
+            (e.target as HTMLElement).id !== 'description'
+          )
+            e.preventDefault();
         }}
       >
         <Style.FormInnerBox>
@@ -312,6 +335,7 @@ const CafeShopCreatePage = () => {
           </Style.ImageGuideTitle>
           <Style.ImageInput
             type="file"
+            accept="image/*"
             onChange={handleInputImage}
             multiple
             id="addImg"
