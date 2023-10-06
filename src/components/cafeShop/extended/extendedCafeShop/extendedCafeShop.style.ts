@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-const CafeShopBox = styled.div<{ expanded: boolean }>`
+const CafeShopBox = styled.div<{ $expanded: boolean }>`
   display: flex;
   width: 700px;
-  height: ${(props) => (props.expanded ? 'auto' : '300px')};
+  height: ${(props) => (props.$expanded ? 'auto' : '300px')};
   border-bottom: 1px solid #e5e8ec;
   padding-top: 30px;
   @media (max-width: 720px) {
     flex-direction: column;
     width: 90%;
-    height: ${(props) => (props.expanded ? 'auto' : '30%')};
+    height: ${(props) => (props.$expanded ? 'auto' : '30%')};
   }
 `;
 

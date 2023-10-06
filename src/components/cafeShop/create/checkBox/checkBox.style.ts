@@ -9,21 +9,21 @@ const CheckBoxContainer = styled.div`
   }
 `;
 
-const StyledCheckBox = styled.label<{ ischecked: boolean }>`
+const StyledCheckBox = styled.label<{ $ischecked: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 20px;
   height: 20px;
-  border: ${(props) => (props.ischecked ? 'none' : 'solid 0.1rem #dddddd')};
-  background: ${(props) => (props.ischecked ? '#C9612D' : '#E5E8EC')};
+  border: ${(props) => (props.$ischecked ? 'none' : 'solid 0.1rem #dddddd')};
+  background: ${(props) => (props.$ischecked ? '#C9612D' : '#E5E8EC')};
   border-radius: 4px;
   transition: all 150ms;
   cursor: pointer;
   margin: 0 10px 0 0;
 `;
 
-const HiddenCheckBox = styled.input<{ ischecked: boolean }>`
+const HiddenCheckBox = styled.input<{ $ischecked: boolean }>`
   border: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);

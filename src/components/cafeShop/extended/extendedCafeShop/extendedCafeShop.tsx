@@ -21,7 +21,7 @@ const ExtendedCafeShop = ({ shop }: { shop: CafeShopType }) => {
   };
 
   return (
-    <Style.CafeShopBox expanded={expanded}>
+    <Style.CafeShopBox $expanded={expanded}>
       <Style.RepresentImageBox onClick={handleLinkToDetailPage}>
         <img src={shop?.images[0]} alt="대표_이미지" />
       </Style.RepresentImageBox>

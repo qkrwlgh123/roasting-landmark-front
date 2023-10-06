@@ -15,7 +15,6 @@ const CompletePage = () => {
   // 주소창 이용하여 접근하였을 경우 404 리다이렉트
   const shopId = location.state;
   if (!shopId) {
-    console.log('?');
     setTimeout(() => {
       navigate('/404', { replace: true });
     }, 0);

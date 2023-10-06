@@ -56,7 +56,7 @@ const CafeShopReviewList = ({
       {reviewList?.length > 0 ? (
         reviewList?.map((reviewInfo: ReviewType) => (
           <CafeShopReview
-            key={reviewInfo.username}
+            key={reviewInfo.id}
             reviewInfo={reviewInfo}
             isCreator={isCreator}
           />

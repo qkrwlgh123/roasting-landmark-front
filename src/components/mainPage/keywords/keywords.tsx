@@ -12,7 +12,7 @@ const Keywords = ({
     <Style.KeywordsListLayout>
       <Style.KeywordsBox>
         <Style.Keyword
-          isClicked={currentKeywords.length === 0}
+          $isclicked={currentKeywords.length === 0}
           onClick={() => handleChangeCurrentKeywords('전체')}
         >
           <img
@@ -27,7 +27,10 @@ const Keywords = ({
         </Style.Keyword>
         {KEYWORDS_LIST.filter((_, idx) => idx > 0).map((keyword) => (
           <Style.Keyword
-            isClicked={currentKeywords.some((item) => item === keyword.keyword)}
+            key={keyword.keyword}
+            $isclicked={currentKeywords.some(
+              (item) => item === keyword.keyword
+            )}
             onClick={() => handleChangeCurrentKeywords(keyword.keyword)}
           >
             <img

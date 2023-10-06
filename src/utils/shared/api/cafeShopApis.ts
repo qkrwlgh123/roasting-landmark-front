@@ -25,11 +25,11 @@ export const getMyShops = async () => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
-// 단욀 카페 목록 조회
+// 단욀 카페 조회
 export const getShopDetail = async (id: number) => {
   try {
     const { data } = await authInstance.get(`/shop/detail`, {
@@ -39,7 +39,7 @@ export const getShopDetail = async (id: number) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 

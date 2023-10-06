@@ -54,7 +54,6 @@ const DropMenu = ({
         e.target instanceof HTMLElement && // HTMLElement일 때만 tagName 속성 사용
         e.target.tagName !== 'IMG'
       ) {
-        console.log('d');
         handleClickProfile();
       }
     };

@@ -214,7 +214,7 @@ const CafeShopCreatePage = () => {
     searchPlaces(changedShopName, handleSetPlacesState);
   }, [changedShopName]);
 
-  // 키워드 선택하지 않았을 경우 404 리다이렉트
+  // 키워드 선택하지 않았을 경우
   if (!keywordList) {
     navigate('/404');
     return null;

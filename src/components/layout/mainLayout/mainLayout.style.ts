@@ -15,8 +15,8 @@ const ContentsLayout = styled.div`
   height: 100%;
 `;
 
-const Overlay = styled.div<{ active: boolean }>`
-  display: ${(props) => (props.active ? 'block' : 'none')};
+const Overlay = styled.div<{ $active: boolean }>`
+  display: ${(props) => (props.$active ? 'block' : 'none')};
   position: fixed;
   top: 80px;
   left: 0;

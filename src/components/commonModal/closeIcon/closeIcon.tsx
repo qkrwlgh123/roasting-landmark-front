@@ -9,7 +9,10 @@ const CloseIcon = ({
   isDark?: boolean;
 }) => {
   return (
-    <Style.CloseIconBox onClick={onClickFunc} {...(isDark && { isDark: true })}>
+    <Style.CloseIconBox
+      onClick={onClickFunc}
+      {...(isDark && { $isDark: true })}
+    >
       <img src={Icon} alt="close_icon" />
     </Style.CloseIconBox>
   );

@@ -14,12 +14,12 @@ const KeywordsBox = styled.div`
   }
 `;
 
-const Keyword = styled.div<{ isClicked: boolean }>`
+const Keyword = styled.div<{ $isclicked: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   border-bottom: ${(props) =>
-    props.isClicked ? '3px solid #D57F4D' : undefined};
+    props.$isclicked ? '3px solid #D57F4D' : undefined};
 
   padding: 15px;
   margin-right: 10px;
@@ -32,7 +32,7 @@ const Keyword = styled.div<{ isClicked: boolean }>`
     }
   }
   span {
-    color: ${(props) => (props.isClicked ? '#D57F4D' : '#747983')};
+    color: ${(props) => (props.$isclicked ? '#D57F4D' : '#747983')};
     font-weight: 300;
     font-size: 13px;
     @media (max-width: 800px) {

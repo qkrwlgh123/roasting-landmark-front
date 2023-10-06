@@ -4,6 +4,7 @@ import {
   authInstance,
   defaultInstance,
   formDataInstance,
+  getAuthorizationHeader,
 } from './axiosInstance';
 
 // 신규 유저 등록
@@ -51,11 +52,13 @@ export const logout = () => {
 };
 
 // 토큰 유효성 검사
-export const handleValidateToken = async () => {
+export const handleValidateAuthorization = async () => {
   try {
-    await authInstance.get('user/validate');
-    return true;
-  } catch (err) {
-    return false;
+    const { data } = await authInstance.get('user/validate', {
+      headers: { Authorization: getAuthorizationHeader() },
+    });
+    return data;
+  } catch (error) {
+    return error;
   }
 };

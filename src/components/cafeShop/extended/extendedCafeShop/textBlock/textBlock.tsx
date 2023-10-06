@@ -23,7 +23,7 @@ const TextBlock = ({
               <pre>{text.slice(0, 70) + '...'}</pre>
               <Style.ShowMoreButton
                 onClick={handleShowMore}
-                expanded={expanded}
+                $expanded={expanded}
               >
                 더 보기
               </Style.ShowMoreButton>

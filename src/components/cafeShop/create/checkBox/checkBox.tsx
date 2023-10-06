@@ -18,9 +18,9 @@ const CheckBox = ({
         onChange={handleChangeHolidayList}
         type="checkbox"
         value={dayObject.day}
-        ischecked={isChecked}
+        $ischecked={isChecked}
       />
-      <Style.StyledCheckBox htmlFor={dayObject.day} ischecked={isChecked}>
+      <Style.StyledCheckBox htmlFor={dayObject.day} $ischecked={isChecked}>
         <img src={CheckIcon} alt="check_icon" />
       </Style.StyledCheckBox>
       <span>{dayObject.day}</span>

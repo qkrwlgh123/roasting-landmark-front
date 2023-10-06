@@ -54,11 +54,11 @@ const Header = ({
     return () => window.removeEventListener('scroll', updateScroll);
   });
   return (
-    <Style.HeaderContainer isDown={scrollPosition > 80}>
+    <Style.HeaderContainer $isdown={scrollPosition > 80}>
       <Style.HeaderContentsBox>
         <Style.LeftHeaderContentsBox>
           <Link to={routes.mainPage}>
-            <Style.LogoBox isDown={scrollPosition > 80}>
+            <Style.LogoBox $isdown={scrollPosition > 80}>
               <img src={Logo} alt="로고_이미지" />
             </Style.LogoBox>
           </Link>
@@ -76,7 +76,7 @@ const Header = ({
             </div>
           </Style.SearchComponentBox>
         </Style.LeftHeaderContentsBox>
-        <Style.RightHeaderContentsBox isDown={scrollPosition > 80}>
+        <Style.RightHeaderContentsBox $isdown={scrollPosition > 80}>
           <a href="https://open.kakao.com/o/sw3zU1Hf" target="_blank">
             <Style.ButtonBox>문의 남기기</Style.ButtonBox>
           </a>

@@ -8,7 +8,6 @@ import CafeShopCreatePage from './pages/cafeShop/createPage/cafeShopCreatePage';
 import SignUp from './pages/auth/signUp/signUp';
 import Login from './pages/auth/login/login';
 import { useEffect } from 'react';
-import { handleValidateToken } from './utils/shared/api/authAPis';
 import { useRecoilState } from 'recoil';
 import { isLoggedInAtom, userInfoAtom } from './recoil/authAtoms';
 import { UserInfoType } from './types/user';

@@ -60,7 +60,8 @@ const EnlargedImages = ({
         <Style.ThumbsContainer>
           {images.map((image, index) => (
             <Style.ThumbBox
-              isSelected={currentImageIndex === index}
+              key={image}
+              $isSelected={currentImageIndex === index}
               onClick={() => setCurrentImageindex(index)}
             >
               <img src={image} alt="thumb_image" />

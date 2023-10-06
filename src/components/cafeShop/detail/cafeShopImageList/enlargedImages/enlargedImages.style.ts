@@ -73,12 +73,12 @@ const ThumbsContainer = styled.div`
   margin-top: 40px;
 `;
 
-const ThumbBox = styled.div<{ isSelected: boolean }>`
+const ThumbBox = styled.div<{ $isSelected: boolean }>`
   width: 70px;
   height: 70px;
   cursor: pointer;
   margin-right: 3px;
-  opacity: ${(props) => (props.isSelected ? '1' : '0.4')};
+  opacity: ${(props) => (props.$isSelected ? '1' : '0.4')};
   img {
     width: 100%;
     height: 100%;

@@ -18,7 +18,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
       <Style.ContentsLayout>{children}</Style.ContentsLayout>
 
-      <Style.Overlay active={isSearchInputFocused} />
+      <Style.Overlay $active={isSearchInputFocused} />
       {/* <Footer /> */}
     </Style.Layout>
   );

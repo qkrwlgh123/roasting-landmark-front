@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { routes } from '../../../../routes';
 import { KEYWORDS_LIST } from '../../../../utils/shared/datas';
 import StepProgress from '../../../../components/cafeShop/create/stepProgress/stepProgress';
+import { handleValidateAuthorization } from '../../../../utils/shared/api/authAPis';
 
 const SelectKeywordsPage = () => {
   const [isPageVisible, setIsPageVisible] = useState(false);
@@ -28,8 +29,17 @@ const SelectKeywordsPage = () => {
     navigate(routes.cafeShopCreate, { state: keywordsList });
   };
 
-  // 페이지 렌더링 시 애니메이션 효과
+  // 비인증된 사용자일 경우 404 리다이렉트, 페이지 렌더링 시 애니메이션 효과
   useEffect(() => {
+    const requestAuthorization = async () => {
+      const resData = await handleValidateAuthorization();
+
+      if (resData?.response?.status === 401) {
+        navigate('/404');
+        return null;
+      }
+    };
+    requestAuthorization();
     // 페이지가 로드되면 200ms(0.2초) 후에 컴포넌트가 나타나도록 설정
     const timer = setTimeout(() => {
       setIsPageVisible(true);
@@ -42,7 +52,7 @@ const SelectKeywordsPage = () => {
     <>
       <StepProgress step={1} />
       <SelectKeywordsLayout>
-        <Style.TitleBox isPageVisible={isPageVisible}>
+        <Style.TitleBox $isPageVisible={isPageVisible}>
           <span>다음 중 카페를 잘 설명하는 것은 무엇인가요?</span>
           <span>최대 3개까지 선택 가능합니다.</span>
         </Style.TitleBox>
@@ -50,9 +60,9 @@ const SelectKeywordsPage = () => {
           {KEYWORDS_LIST.filter((_, idx) => idx > 0).map((keyword, index) => (
             <Style.Keyword
               key={keyword.keyword}
-              isPageVisible={isPageVisible}
-              animationDelay={index * 0.1}
-              isClicked={keywordsList.some((item) => item === keyword.keyword)}
+              $isPageVisible={isPageVisible}
+              $animationDelay={index * 0.1}
+              $isClicked={keywordsList.some((item) => item === keyword.keyword)}
               onClick={() => handleClickKeyword(keyword.keyword)}
             >
               <img

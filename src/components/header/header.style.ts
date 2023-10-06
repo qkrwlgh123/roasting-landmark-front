@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-const HeaderContainer = styled.nav<{ isDown: boolean }>`
+const HeaderContainer = styled.nav<{ $isdown: boolean }>`
   position: fixed;
   left: 0;
   top: 0;
@@ -8,7 +8,9 @@ const HeaderContainer = styled.nav<{ isDown: boolean }>`
   display: flex;
   justify-content: center;
   height: 80px;
-  background-color: ${(props) => (props.isDown ? '' : '#ffffff')};
+  background-color: #ffffff;
+  opacity: ${(props) => (props.$isdown ? 0.1 : 1)};
+  transition: opacity ease 0.5s;
   z-index: 1;
 `;
 
@@ -30,8 +32,8 @@ const LeftHeaderContentsBox = styled.div`
   align-items: center;
 `;
 
-const RightHeaderContentsBox = styled.div<{ isDown: boolean }>`
-  display: ${(props) => (props.isDown ? 'none' : 'flex')};
+const RightHeaderContentsBox = styled.div<{ $isdown: boolean }>`
+  display: flex;
   align-items: center;
 `;
 
@@ -40,13 +42,13 @@ const ContentBox = styled.li`
   font-weight: 500;
 `;
 
-const LogoBox = styled(ContentBox)<{ isDown: boolean }>`
+const LogoBox = styled(ContentBox)<{ $isdown: boolean }>`
   width: 170px;
   height: 56px;
   margin-right: 30px;
   img {
-    width: ${(props) => (props.isDown ? '0%' : '100%')};
-    height: ${(props) => (props.isDown ? '0%' : '100%')};
+    width: 100%;
+    height: 100%;
   }
 `;
 

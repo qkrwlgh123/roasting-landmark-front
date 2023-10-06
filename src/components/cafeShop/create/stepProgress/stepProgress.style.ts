@@ -31,7 +31,7 @@ const StepContainer = styled.div`
   }
 `;
 
-const StepNumber = styled.span<{ active: boolean }>`
+const StepNumber = styled.span<{ $active: boolean }>`
   display: block;
   width: 30px;
   height: 30px;
@@ -42,7 +42,7 @@ const StepNumber = styled.span<{ active: boolean }>`
   background-color: white;
 
   ${(props) =>
-    props.active &&
+    props.$active &&
     `
     background-color: #383b40;
     color: white;

@@ -17,8 +17,8 @@ const Container = styled.div`
   }
 `;
 
-const ShowMoreButton = styled.button<{ expanded: boolean }>`
-  display: ${(props) => (props.expanded ? 'none' : 'flex')};
+const ShowMoreButton = styled.button<{ $expanded: boolean }>`
+  display: ${(props) => (props.$expanded ? 'none' : 'flex')};
   color: #c9612d;
   font-size: 16px;
 `;
