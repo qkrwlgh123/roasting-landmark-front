@@ -1,15 +1,15 @@
 import { CafeShopType } from '../../../../types/cafeShop';
 import Style from './cafeShop.style';
-import HeartIcon from '../../../../assets/images/btn_heart_off.png';
 import DistanceIcon from '../../../../assets/images/btn_distance_bottom2.png';
-import StarOffIcon from '../../../../assets/svg/star_off.svg';
 import { Link } from 'react-router-dom';
 import RateStars from '../../../cafeShop/rateStars/rateStars';
+import HoverInformation from './hoverInformation/hoverInformation';
 
 const CafeShop = ({ shopInfos }: { shopInfos: CafeShopType }) => {
   return (
     <Link to={`/cafeShopDetail/${shopInfos.id}`}>
       <Style.CafeInfoBox>
+        <HoverInformation shopInfos={shopInfos} />
         <Style.CafeImageBox>
           <img src={shopInfos?.images[0]} alt="represent_image" />
         </Style.CafeImageBox>

@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 
+export const HoverInfoBox = styled.div`
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+
+  transition: opacity 1s ease;
+`;
+
 const CafeInfoBox = styled.div`
+  position: relative;
   width: 290px;
   height: 335px;
   display: flex;
@@ -10,12 +22,16 @@ const CafeInfoBox = styled.div`
   line-height: 1;
   &:hover {
     scale: 1.1;
+    ${HoverInfoBox} {
+      opacity: 1;
+    }
   }
   transition: scale 0.2s ease;
 `;
 
 const CafeImageBox = styled.div`
   height: 55%;
+
   img {
     width: 100%;
     height: 100%;
@@ -76,7 +92,7 @@ export default {
   CafeTitleBox,
   CafeHashTagsBox,
   RatesDistanceInfoBox,
-
   DistanceTextBox,
   DistanceIconBox,
+  HoverInfoBox,
 };
