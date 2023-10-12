@@ -22,11 +22,13 @@ const TitleText = styled.span`
 
 const KeywordsBox = styled.div`
   margin-bottom: 10px;
+  font-size: 13px;
 `;
 
 const ReviewBox = styled.div`
   height: 100%;
   white-space: normal;
+  font-size: 13px;
 `;
 
 const RateBox = styled.div`

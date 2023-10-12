@@ -7,8 +7,7 @@ export const HoverInfoBox = styled.div`
   bottom: 0;
   left: 0;
   height: 50%;
-
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 `;
 
 const CafeInfoBox = styled.div`
@@ -27,11 +26,23 @@ const CafeInfoBox = styled.div`
     }
   }
   transition: scale 0.2s ease;
+  @media (max-width: 1300px) {
+    width: 100%;
+    height: 400px;
+  }
+  @media (max-width: 1150px) {
+    width: 100%;
+    height: 400px;
+  }
+  @media (max-width: 750px) {
+    width: 100%;
+    height: 400px;
+  }
 `;
 
 const CafeImageBox = styled.div`
   height: 55%;
-
+  width: 100%;
   img {
     width: 100%;
     height: 100%;
@@ -71,6 +82,9 @@ const RatesDistanceInfoBox = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
+  @media (max-width: 1300px) {
+    height: 20%;
+  }
 `;
 
 const DistanceTextBox = styled.div`

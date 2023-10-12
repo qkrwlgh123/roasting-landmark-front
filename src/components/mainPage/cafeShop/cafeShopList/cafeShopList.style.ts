@@ -8,13 +8,11 @@ const ListBox = styled.div`
   @media (max-width: 1300px) {
     grid-template-columns: repeat(3, 1fr); /* 4개의 동일한 너비의 열을 생성 */
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr); /* 4개의 동일한 너비의 열을 생성 */
   }
-  @media (max-width: 650px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  @media (max-width: 750px) {
+    grid-template-columns: repeat(1, 1fr); /* 4개의 동일한 너비의 열을 생성 */
   }
 `;
 
