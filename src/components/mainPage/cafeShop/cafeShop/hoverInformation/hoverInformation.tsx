@@ -36,8 +36,15 @@ const HoverInformation = ({ shopInfos }: { shopInfos: CafeShopType }) => {
             />
           </div>
           <div>
-            <span>&nbsp;{shopInfos?.rate}</span>
-            <span>({shopInfos?.participants}명)</span>
+            <span>
+              &nbsp;
+              {shopInfos?.rate
+                ? shopInfos?.rate?.toFixed(1)
+                : '후기를 작성해주세요'}
+            </span>
+            <span>
+              {shopInfos?.rate ? `(${shopInfos?.participants}명)` : ''}
+            </span>
           </div>
         </Style.RateBox>
       </Style.HoverInnerBox>
