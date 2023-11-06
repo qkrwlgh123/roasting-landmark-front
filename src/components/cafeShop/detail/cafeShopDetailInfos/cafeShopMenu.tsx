@@ -16,7 +16,7 @@ const CafeShopMenu = ({ detailInfo }: { detailInfo: CafeShopType }) => {
   return (
     <CafeShopDetailInfosLayout>
       <DescriptionContainer>
-        <DescriptionSubjectBox>메뉴</DescriptionSubjectBox>
+        <DescriptionSubjectBox>주요 메뉴</DescriptionSubjectBox>
       </DescriptionContainer>
       <CategoriesContainer>
         <CategoryBox>
