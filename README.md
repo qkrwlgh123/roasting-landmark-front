@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+## 프로젝트 소개
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+개인 & 프랜차이즈 카페를 운영하는 소상공인을 위한 **키워드 기반 카페 홍보 플랫폼**입니다.
 
-## Available Scripts
+## 프로젝트 개발 취지 & 특징
 
-In the project directory, you can run:
+### `"방문할 카페가 어떤 카페야?"를 직관적으로 알 수 있게..`
 
-### `npm start`
+- 기존엔 지도 앱에서 검색 또는 후기 글을 통해 카페를 탐색해야 할 경우, 지도 앱 내 여러 리뷰 & 긴 후기 글을 정독해야만 파악이 가능하다는 한계가 존재했습니다.
+- 이렇게 발생되는 시간적 비용을 개선하며, **카페의 전반적인 느낌을 간단한 키워드를 통해 직관적으로 파악**할 수 있게 해주는 플랫폼이 필요하다는 생각이 들어 기획하게 되었습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `키워드를 통한 간편한 카페 홍보`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- 홍보하고자 하는 카페에 대한 키워드를 최대 3개까지 지정 가능합니다. 이를 통해 카페의 전반적인 느낌을 키워드를 통해 사용자에게 직관적으로 제공할 수 있습니다.
+- 카페 홍보를 위한 등록을 위해 복잡한 과정이 필요하지 않습니다. 키워드를 지정하고 몇 장의 사진과 간략한 정보를 등록하면 위치 정보는 자동으로 서비스에 등록됩니다.
 
-### `npm test`
+## Frontend 아키텍처
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="503" alt="스크린샷 2023-11-16 오후 7 07 04" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/4f710a93-a9d0-40b1-9049-a6917e9fd2eb">
 
-### `npm run build`
+### `S3와 Cloudfront를 사용하여 배포한 이유는?`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### `간편한 정적 호스팅`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- S3는 정적 웹 페이지를 호스팅하기에 효과적이고 간편합니다. React로 만든 웹은 주로 정적 파일로 구성되어 있어 S3가 이에 적합하다고 생각하여 선택하게 되었습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### `안정성`
 
-### `npm run eject`
+- S3는 높은 확장성과 안정성을 제공하기 때문에, 추후 대규모 트래픽에 대응이 용이하기 위해 해당 특성을 고려하여 선택하였습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### `엣지 로케이션을 통한 성능 향상`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 사용자 경험을 증진시키기 위해, 전 세계에 분산된 엣지 로케이션을 통해 성능을 최적화하는 것이 가능한 Cloudfront를 사용하여 배포하였습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `캐싱`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 로딩 시간 단축을 통한 사용성 증진을 위해, 컨텐츠 캐싱을 지원하는 Cloudfront를 선택하였습니다.
 
-## Learn More
+#### `보안성`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 보안성을 강화하기 위해 HTTPS를 통한 데이터 전송을 지원하는 Cloudfront를 S3와 연동하여 배포하였습니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `상태관리 라이브러리로 Recoil을 선택한 이유는?`
+
+#### `생산성 향상`
+
+- 많이 사용되는 상태관리 라이브러리인 Redux를 초기에 고려하였지만, 상태 관리를 위해 거대한 보일러 플레이트가 필요한 라이브러리이기 때문에 규모가 비교적 크지 않은 이 프로젝트에는 적절하지 않다고 생각하였습니다.
+- 따라서 hooks를 사용하는 것처럼 **간편하게 상태관리가 가능**한 Recoil을 선택하였으며, 무리없이 상태관리를 구현하는 것이 가능했습니다.
+
+## 주요 기능
+
+#### `키워드에 따른 필터링 조회`
+
+<img width="304" alt="스크린샷 2023-11-16 오후 7 32 42" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/bc81fe48-7f85-4320-a24b-04df26f1a2e9">
+
+#### `주변 카페 탐색`
+
+<img width="304" alt="스크린샷 2023-11-16 오후 7 33 52" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/36b40246-ebea-40f1-988b-1840f65db765">
+<img width="154" alt="스크린샷 2023-11-16 오후 7 34 01" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/e54233ae-3924-46db-8af1-a3d6fd36fe7a">
+
+## 고민했던 사항 & 배운 점
+
+### `위치 간 거리 계산`
+
+- 두 위치(현재 위치 또는 희망하는 위치와 카페)간 거리를 정확하게 계산하기 위한 방법을 고민했습니다.
+- 지구는 구의 형태를 띠기 때문에, 단순 직선 거리로 계산하게 되면 큰 오차가 발생할 가능성이 존재합니다.
+- 이렇게 발생 가능한 오차를 최소화하며 **정확한 거리 계산을 위해 Haversine Formula**를 이용하였고, 지도 앱을 통해 테스트해본 결과 결과가 정확하게 산출되는 것을 확인했습니다.
+
+### `이미지 압축 업로드를 통한 성능 개선`
+
+- 대용량의 이미지를 업로드하거나 웹에서 렌더링하게 될 경우, 성능 이슈가 발생할 것으로 예상하여 이미지를 압축하여 업로드 하도록 구현하였습니다.
+- Lighthouse를 통해 성능 차이를 측정해본 결과, **서버와의 통신 성능이 19.13% 개선**된 것을 확인했습니다.
+
+## 회고
+
+### `기능 확장에 대한 여러 시도`
+
+- 직접 기획한 서비스를 개발하고 런칭까지 진행한 후, 서비스 확장에 대한 아이디어가 계속해서 떠올랐습니다.
+- 팀이 아닌 개인 프로젝트인 덕분에, **일정에 구애받지 않고 여러 아이디어를 시도**할 수 있었습니다.
+
+### `서비스 마케팅 중 겪었던 어려움 & 향후 계획`
+
+- 마케팅이 생각보다 쉽지 않다는 것을 느끼게 되었습니다.
+- 오픈채팅, 카페 사장 모임 네이버 카페를 통해 서비스 홍보를 시도했지만, 서비스 홍보에 대해 회의적이거나 새로운 서비스를 사용하는 것에 대해 거부감을 느끼시는 경우가 많았습니다.
+- 서비스 사용 시 기대효과, 사용법과 같은 사항들을 읽기 쉽게 정리하여, 쳬계적으로 마케팅하여 서비스 트래픽을 늘릴 계획입니다.
