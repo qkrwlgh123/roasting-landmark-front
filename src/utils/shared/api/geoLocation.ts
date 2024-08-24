@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction } from 'react';
-import { getCurrentPositionResultType } from '../../../types/kakaoApiResult';
-import { getRecommendByLocationShops } from './cafeShopApis';
-import { CafeShopType } from '../../../types/cafeShop';
+import { Dispatch, SetStateAction } from "react";
+import { getCurrentPositionResultType } from "../../../types/kakaoApiResult";
+import { getRecommendByLocationShops } from "./cafeShopApis";
+import { CafeShopType } from "../../../types/cafeShop";
 
 const { kakao } = window;
 
@@ -18,12 +18,13 @@ export const getCurrentLocation = (
   handleSetShopList: (list: CafeShopType[]) => void,
   handleChangleLoadingState: () => void
 ) => {
-  if ('geolocation' in navigator) {
+  if ("geolocation" in navigator) {
     handleChangleLoadingState();
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+
         handleGetCurrentLocation({ latitude, longitude });
         const recommendedList = await getRecommendByLocationShops({
           latitude,
@@ -31,7 +32,8 @@ export const getCurrentLocation = (
         });
 
         handleSetShopList(recommendedList?.data);
-        // 주소-좌표 변환 객체를 생성합니다
+
+        // 주소-좌표 변환 객체를 생성
         const geocoder = new kakao.maps.services.Geocoder();
         geocoder.coord2RegionCode(
           longitude,
@@ -43,11 +45,11 @@ export const getCurrentLocation = (
         );
       },
       (error) => {
-        console.error('Error getting geolocation:', error);
+        console.error("Error getting geolocation:", error);
       }
     );
   } else {
-    console.log('Geolocation is not available in this browser.');
+    console.log("Geolocation is not available in this browser.");
   }
 };
 
@@ -56,7 +58,7 @@ export const getCurrentRegion = (
   { latitude, longitude }: { latitude: number; longitude: number },
   handleGetCurrentGegion: (region: string) => void
 ) => {
-  // 주소-좌표 변환 객체를 생성합니다
+  // 주소-좌표 변환 객체를 생성
   const geocoder = new kakao.maps.services.Geocoder();
   geocoder.coord2RegionCode(
     longitude,
