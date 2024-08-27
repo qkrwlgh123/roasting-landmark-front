@@ -1,76 +1,95 @@
-## 프로젝트 소개
+# ☕ Roasting Landmark Front
+
+[![license](https://img.shields.io/badge/License-GPL-red)](https://en.wikipedia.org/wiki/GNU_General_Public_License)
+[![code](https://img.shields.io/badge/Code-Typescript-blue)](https://www.typescriptlang.org/)
+[![Framework](https://img.shields.io/badge/Framework-React-orange)](https://react.dev/)
+[![API](https://img.shields.io/badge/API-Kakao_maps-blueviolet)](https://apis.map.kakao.com/)
+[![member](https://img.shields.io/badge/Project-Personal-brightgreen)](https://github.com/qkrwlgh123)
+
+> 위치 및 키워드 기반 카페 탐색 & 홍보 플랫폼 👉 https://roasting.kindparks.com/
 
 ![스크린샷 2023-11-17 오후 11 33 48](https://github.com/qkrwlgh123/roasting-landmark-front/assets/85853566/334aa583-1e46-496e-9315-d531e664eaec)
 
-개인 & 프랜차이즈 카페를 운영하는 소상공인을 위한 **키워드 기반 카페 홍보 플랫폼**입니다.
+## 📖 Description
 
-## 프로젝트 개발 취지 & 특징
+방문할 카페에 대한 정보를 얻기 위해 지도 앱을 이용할 경우, 여러 긴 후기 글들을 정독해야만 파악이 가능하다는 불편함이 존재했습니다.
 
-### `"방문할 카페가 어떤 카페야?"를 직관적으로 알 수 있게..`
+이렇게 발생할 수 있는 불편함을 개선하며, 카페의 전반적 특징을 간단한 키워드를 통해 직관적으로 파악할 수 있게 도와줄 플랫폼이 필요하다는 생각이 들었습니다.
 
-- 카페의 전반적인 인상을 파악하기 위해 지도 앱을 이용할 경우, **여러 리뷰 또는 긴 후기 글을 정독해야만 파악이 가능하다는 불편함**이 존재했습니다.
-- 이렇게 발생할 수 있는 불편함을 개선하며, **카페의 전반적인 인상을 간단한 키워드를 통해 직관적으로 파악**할 수 있게 해주는 플랫폼이 필요하다는 생각이 들어 기획하게 되었습니다.
+그리고 개인 카페 홍보가 필요한 소상공인들에게, 키워드와 사진 등록을 통한 복잡하지 않은 과정을 통해 카페를 홍보할 플랫폼을 제공하고 싶었습니다.
 
-### `키워드를 통한 간편한 카페 홍보`
+이런 계기를 통해 키워드 기반 카페 탐색 및 홍보 플랫폼인 로스팅 랜드마크를 기획, 개발하게 되었습니다.
 
-- 홍보하고자 하는 카페에 대한 키워드를 최대 3개까지 지정 가능합니다. 이를 통해 **카페의 전반적인 인상을 키워드를 통해 사용자에게 직관적으로 제공**할 수 있습니다.
-- 카페 홍보를 위한 등록을 위해 별도의 복잡한 과정이 필요하지 않습니다. **키워드를 지정하고 몇 장의 사진과 간략한 정보만 입력**하면 위치 정보는 자동으로 서비스에 등록됩니다.
+## ⭐ Main Feature
 
-## Frontend 아키텍처
+### 설정 위치 기반 일정 반경 내 카페 목록 조회
 
-<img width="503" alt="스크린샷 2023-11-16 오후 7 07 04" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/4f710a93-a9d0-40b1-9049-a6917e9fd2eb">
+- Geolocation, Kakao maps API 및 Haversine을 활용한 위치 기반 조회 구현
 
-### `S3와 Cloudfront를 사용하여 배포한 이유는?`
+### 로그인
 
-#### `안정성 & 성능`
+- Kakao social login 이용
 
-- **높은 안정성을 가진 S3**을 이용하여 정적 웹 페이지 호스팅을 진행하였습니다.
-- **분산된 엣지 로케이션을 통한 배포 & 캐싱** 기능을 지원하는 Cloudfront를 이용하여 S3와 연동하였습니다.
+### 키워드에 따른 카페 목록 조회
 
-#### `보안성`
+- React hooks인 useState 활용하여 목록 필터링 구현
 
-- 보안성을 강화하기 위해 HTTPS를 통한 데이터 전송을 지원하는 Cloudfront를 S3와 연동하여 배포하였습니다.
+### 기타 기능
 
-### `상태관리 라이브러리로 Recoil을 선택한 이유는?`
+- 카페 등록
+- 카페 상세 조회 및 평점, 리뷰 작성
 
-#### `개발 생산성`
+## 💻 Getting Started
 
-- 넓은 커뮤니티를 가진 Redux를 초기에 고려하였지만, 작지 않은 보일러 플레이트가 필요하다는 한계가 존재하여 규모가 비교적 크지 않은 이 프로젝트에는 적절하지 않다고 생각하였습니다.
-- 따라서 React hooks를 사용하는 것과 유사하여 **간편하게 상태관리가 가능**한 Recoil을 선택하였으며, 무리없이 상태관리를 구현하는 것이 가능했습니다.
+### Installation
 
-## 주요 기능
+```
+npm install
+```
 
-#### `키워드에 따른 필터링 조회`
+### Develop Mode
 
-<img width="304" alt="스크린샷 2023-11-16 오후 7 32 42" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/bc81fe48-7f85-4320-a24b-04df26f1a2e9">
+```
+npm start
+```
 
-#### `주변 카페 탐색`
+### Production
 
-<img width="304" alt="스크린샷 2023-11-16 오후 7 33 52" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/36b40246-ebea-40f1-988b-1840f65db765">
-<img width="154" alt="스크린샷 2023-11-16 오후 7 34 01" src="https://github.com/qkrwlgh123/roasting-backend/assets/85853566/e54233ae-3924-46db-8af1-a3d6fd36fe7a">
+```
+npm run build
+```
 
-## 고민했던 사항 & 배운 점
+## 🔧 Stack
 
-### `위치 간 거리 계산`
+- **Language**: TypeScript
+- **Library & Framework** : React.js
+- **API** : Kakao maps
+- **Deploy**: AWS S3, Cloudfront
 
-- 두 위치(현재 위치 또는 희망하는 위치와 카페)간 **거리를 정확하게 계산**하기 위한 방법을 고민했습니다.
-- 지구는 구의 형태를 띠기 때문에, 단순 직선 거리로 계산하게 되면 오차가 발생할 가능성이 있습니다.
-- 발생 가능한 오차를 최소화하며 **정확한 거리 계산을 위해 Haversine Formula**를 이용하였고, 지도 앱을 통해 테스트해본 결과 결과가 정확하게 산출되는 것을 확인했습니다.
+## :open_file_folder: Project Structure
 
-### `이미지 압축 업로드를 통한 성능 개선`
+```markdown
+public
+src
+├── assets
+│   ├── images
+│   ├── svg
+├── components
+├── pages
+├── recoil
+├── styles
+├── types
+├── utils
+App.tsx
+index.tsx
+routes.ts
+package.json
+```
 
-- 대용량의 이미지를 업로드하거나 웹에서 여러 이미지들을 렌더링하게 될 경우, 성능 이슈가 발생할 것으로 예상하여 이미지를 압축하여 업로드 하도록 구현하였습니다.
-- Lighthouse를 통해 성능 차이를 측정해본 결과, **서버와의 통신 성능이 19.13% 개선**된 것을 확인했습니다.
+## 🔨 Architecture
 
-## 회고
+<img src="https://github.com/user-attachments/assets/cdceaa85-4a50-4975-9c67-ff6002aca146" width="1000">
 
-### `기능 확장에 대한 여러 시도`
+## 👨‍👩‍👧‍👦 Developer
 
-- 직접 기획한 서비스를 개발하고 런칭까지 진행한 후, 서비스 확장에 대한 아이디어가 계속해서 떠올랐습니다.
-- 팀이 아닌 개인 프로젝트인 덕분에, **일정에 구애받지 않고 여러 아이디어를 시도**할 수 있었습니다.
-
-### `서비스 마케팅 중 겪었던 어려움 & 향후 계획`
-
-- 마케팅이 생각보다 쉽지 않다는 것을 느끼게 되었습니다.
-- 여러 온라인 플랫폼을 통해 서비스 홍보를 시도했지만, 홍보에 대해 회의적이거나 새로운 서비스를 사용하는 것에 대해 거부감을 느끼시는 경우가 많았습니다.
-- 서비스를 사용하게 될 때 기대효과, 서비스 사용방법과 같은 사항들을 읽기 쉽게 정리하여, 쳬계적으로 마케팅하여 서비스 트래픽을 늘릴 계획입니다.
+- **박지호** ([qkrwlgh123](https://github.com/qkrwlgh123))
