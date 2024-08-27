@@ -88,7 +88,7 @@ package.json
 
 ## 🔨 Architecture
 
-<img src="https://github.com/user-attachments/assets/b6b35ddf-76e3-46d5-acc8-1cf1d6759302" width="1000">
+<img src="https://github.com/user-attachments/assets/8edebcbd-0fed-4e38-a728-fee2325764b9" width="1000">
 
 ## 👨‍👩‍👧‍👦 Developer
 
