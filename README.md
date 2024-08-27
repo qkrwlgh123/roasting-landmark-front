@@ -28,7 +28,7 @@
 
 ### 로그인
 
-- Kakao social login 이용
+- Kakao social login 이용하여 카카오 소셜 로그인 구현
 
 ### 키워드에 따른 카페 목록 조회
 
