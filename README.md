@@ -62,7 +62,7 @@ npm run build
 ## 🔧 Stack
 
 - **Language**: TypeScript
-- **Library & Framework** : React.js
+- **Library & Framework** : React.js, Styled-component
 - **API** : Kakao maps
 - **Deploy**: AWS S3, Cloudfront
 
@@ -88,7 +88,7 @@ package.json
 
 ## 🔨 Architecture
 
-<img src="https://github.com/user-attachments/assets/cdceaa85-4a50-4975-9c67-ff6002aca146" width="1000">
+<img src="https://github.com/user-attachments/assets/b6b35ddf-76e3-46d5-acc8-1cf1d6759302" width="1000">
 
 ## 👨‍👩‍👧‍👦 Developer
 
