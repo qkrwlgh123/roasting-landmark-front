@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/License-GPL-red)](https://en.wikipedia.org/wiki/GNU_General_Public_License)
 [![code](https://img.shields.io/badge/Code-Typescript-blue)](https://www.typescriptlang.org/)
 [![Framework](https://img.shields.io/badge/Framework-React-orange)](https://react.dev/)
-[![API](https://img.shields.io/badge/API-Kakao_maps-blueviolet)](https://apis.map.kakao.com/)
+[![API](https://img.shields.io/badge/API-Kakao-blueviolet)](https://apis.map.kakao.com/)
 [![member](https://img.shields.io/badge/Project-Personal-brightgreen)](https://github.com/qkrwlgh123)
 
 > 위치 및 키워드 기반 카페 탐색 & 홍보 플랫폼 👉 https://roasting.kindparks.com/
