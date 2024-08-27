@@ -62,7 +62,7 @@ npm run build
 ## 🔧 Stack
 
 - **Language**: TypeScript
-- **Library & Framework** : React.js, Styled-component Recoil
+- **Library & Framework** : React.js, Styled-component, Recoil
 - **API** : Kakao maps
 - **Deploy**: AWS S3, Cloudfront
 
