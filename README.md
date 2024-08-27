@@ -32,7 +32,7 @@
 
 ### 키워드에 따른 카페 목록 조회
 
-- React hooks인 useState 활용하여 목록 필터링 구현
+- React hooks인 useState를 활용하여 목록 필터링 구현
 
 ### 기타 기능
 
