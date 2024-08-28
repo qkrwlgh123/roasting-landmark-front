@@ -1,12 +1,18 @@
 # ☕ Roasting Landmark Front
 
+<br/>
+
 [![license](https://img.shields.io/badge/License-GPL-red)](https://en.wikipedia.org/wiki/GNU_General_Public_License)
 [![code](https://img.shields.io/badge/Code-Typescript-blue)](https://www.typescriptlang.org/)
 [![Framework](https://img.shields.io/badge/Framework-React-orange)](https://react.dev/)
 [![API](https://img.shields.io/badge/API-Kakao-blueviolet)](https://developers.kakao.com/)
 [![member](https://img.shields.io/badge/Project-Personal-brightgreen)](https://github.com/qkrwlgh123)
 
+<br/>
+
 > 위치 및 키워드 기반 카페 탐색 & 홍보 플랫폼 👉 https://roasting.kindparks.com/
+
+<br/>
 
 ![스크린샷 2023-11-17 오후 11 33 48](https://github.com/qkrwlgh123/roasting-landmark-front/assets/85853566/334aa583-1e46-496e-9315-d531e664eaec)
 
@@ -19,6 +25,8 @@
 그리고 개인 카페 홍보가 필요한 소상공인들에게, 간단한 절차를 통해 카페를 홍보할 플랫폼을 제공하고 싶었습니다.
 
 이러한 동기로 키워드 기반 카페 탐색 및 홍보 플랫폼인 로스팅 랜드마크를 기획, 개발하게 되었습니다.
+
+<br/>
 
 ## ⭐ Main Feature
 
@@ -38,6 +46,8 @@
 
 - 카페 등록
 - 카페 상세 조회 및 평점, 리뷰 작성
+
+<br/>
 
 ## 💻 Getting Started
 
@@ -59,12 +69,16 @@ npm start
 npm run build
 ```
 
+<br/>
+
 ## 🔧 Stack
 
 - **Language**: TypeScript
 - **Library & Framework** : React.js, Styled-component, Recoil
 - **API** : Kakao maps
 - **Deploy**: AWS S3, Cloudfront
+
+<br/>
 
 ## :open_file_folder: Project Structure
 
@@ -86,9 +100,13 @@ routes.ts
 package.json
 ```
 
+<br/>
+
 ## 🔨 Architecture
 
 <img src="https://github.com/user-attachments/assets/8edebcbd-0fed-4e38-a728-fee2325764b9" width="1000">
+
+<br/>
 
 ## 👨‍👩‍👧‍👦 Developer
 
