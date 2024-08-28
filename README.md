@@ -94,9 +94,9 @@ src
 ├── styles
 ├── types
 ├── utils
-App.tsx
-index.tsx
-routes.ts
+├── App.tsx
+├── index.tsx
+├── routes.ts
 package.json
 ```
 
