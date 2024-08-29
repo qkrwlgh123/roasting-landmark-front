@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -64,6 +64,13 @@ const ImageBox = styled.div`
     height: 100%;
 
     object-fit: contain;
+
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    -webkit-tap-highlight-color: transparent;
   }
 `;
 
@@ -78,11 +85,18 @@ const ThumbBox = styled.div<{ $isSelected: boolean }>`
   height: 70px;
   cursor: pointer;
   margin-right: 3px;
-  opacity: ${(props) => (props.$isSelected ? '1' : '0.4')};
+  opacity: ${(props) => (props.$isSelected ? "1" : "0.4")};
   img {
     width: 100%;
     height: 100%;
     object-fit: fill;
+
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    -webkit-tap-highlight-color: transparent;
   }
 `;
 

@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import MobileImage from '../cafeShopImage/mobileImage/mobileImage';
-import OtherImage from '../cafeShopImage/otherImage/otherImage';
-import RepresentImage from '../cafeShopImage/representImage/representImage';
-import Style from './cafeShopImageList.style';
-import EnlargedImages from './enlargedImages/enlargedImages';
+import { useState } from "react";
+import MobileImage from "../cafeShopImage/mobileImage/mobileImage";
+import OtherImage from "../cafeShopImage/otherImage/otherImage";
+import RepresentImage from "../cafeShopImage/representImage/representImage";
+import Style from "./cafeShopImageList.style";
+import EnlargedImages from "./enlargedImages/enlargedImages";
 
 const CafeShopImageList = ({ images }: { images: string[] }) => {
   const [isClickImage, setIsClickImage] = useState(false);
@@ -14,6 +14,12 @@ const CafeShopImageList = ({ images }: { images: string[] }) => {
     if (imageIndex) setCurrentImageindex(imageIndex);
   };
 
+  /** 이미지 확대 모달 닫을 시 동작 함수 */
+  const handleClickCloseIcon = () => {
+    setIsClickImage(false);
+    setCurrentImageindex(0);
+  };
+
   return (
     <>
       {isClickImage && (
@@ -21,7 +27,7 @@ const CafeShopImageList = ({ images }: { images: string[] }) => {
           images={images}
           currentImageIndex={currentImageIndex}
           setCurrentImageindex={setCurrentImageindex}
-          handleClickImage={handleClickImage}
+          handleClickCloseIcon={handleClickCloseIcon}
         />
       )}
       <Style.ListBox>

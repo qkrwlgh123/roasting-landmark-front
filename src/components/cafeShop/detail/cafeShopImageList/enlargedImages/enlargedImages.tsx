@@ -1,25 +1,27 @@
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import CommonModal from '../../../../commonModal/commonModal';
-import Style from './enlargedImages.style';
-import CloseIcon from '../../../../commonModal/closeIcon/closeIcon';
-import { Children, Dispatch, SetStateAction } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import CommonModal from "../../../../commonModal/commonModal";
+import Style from "./enlargedImages.style";
+import CloseIcon from "../../../../commonModal/closeIcon/closeIcon";
+import { Children, Dispatch, SetStateAction } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 const EnlargedImages = ({
   images,
   currentImageIndex,
   setCurrentImageindex,
-  handleClickImage,
+
+  handleClickCloseIcon,
 }: {
   images: string[];
   currentImageIndex: number;
   setCurrentImageindex: Dispatch<SetStateAction<number>>;
-  handleClickImage: (imageIndex?: number) => void;
+
+  handleClickCloseIcon: () => void;
 }) => {
   const renderSlides = images.map((image) => (
     <Style.ImageBox key={image}>
@@ -30,7 +32,7 @@ const EnlargedImages = ({
   return (
     <Style.ModalBackground>
       <Style.ContentsContainer>
-        <CloseIcon onClickFunc={handleClickImage} isDark={true} />
+        <CloseIcon onClickFunc={handleClickCloseIcon} isDark={true} />
 
         <Style.InnerContainer>
           <Style.IconBox
