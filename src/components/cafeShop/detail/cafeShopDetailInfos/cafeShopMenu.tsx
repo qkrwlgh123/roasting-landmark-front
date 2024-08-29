@@ -1,16 +1,12 @@
-import { CafeShopMenuType, CafeShopType } from '../../../../types/cafeShop';
-import MenuList from '../../menu/menuList/menuList';
-import CafeShopDetailInfosLayout from './cafeShopDetailInfosLayout/cafeShopDetailInfosLayout';
+import { CafeShopType } from "../../../../types/cafeShop";
+import MenuList from "../../menu/menuList/menuList";
+import CafeShopDetailInfosLayout from "./cafeShopDetailInfosLayout/cafeShopDetailInfosLayout";
 import {
   CategoriesContainer,
   CategoryBox,
-  ContentBox,
   DescriptionContainer,
   DescriptionSubjectBox,
-  MenuContainer,
-  MenuInfoBox,
-  SubjectBox,
-} from './cafeShopDetailInfosLayout/cafeShopDetailInfosLayout.style';
+} from "./cafeShopDetailInfosLayout/cafeShopDetailInfosLayout.style";
 
 const CafeShopMenu = ({ detailInfo }: { detailInfo: CafeShopType }) => {
   return (
@@ -20,7 +16,7 @@ const CafeShopMenu = ({ detailInfo }: { detailInfo: CafeShopType }) => {
       </DescriptionContainer>
       <CategoriesContainer>
         <CategoryBox>
-          <div style={{ width: '120%' }}>
+          <div style={{ width: "120%" }}>
             <MenuList menuList={detailInfo?.menu!} />
           </div>
         </CategoryBox>
